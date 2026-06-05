@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healing Combat Trauma — Curated Books for Recovery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Sage green base — muted, grounded, safe */
+  --sage: #6b7d6a;
+  --sage-light: #8fa08d;
+  --sage-pale: #f2f5f0;    /* very light sage — page background */
+  --sage-mid: #d8e2d6;     /* soft sage for cards/chips */
+  --sage-deep: #4a5e49;    /* deeper sage for active states */
+  --purple: #5a3e72;       /* dusty plum — soft accent */
+  --purple-light: #7a5c96;
+  --purple-pale: #f2eef7;
+  --gold: #b8922e;         /* warm amber — used sparingly */
+  --gold-light: #d4aa50;
+  --gold-pale: #fdf6e3;
+  --dark: #1a1a1a;
+  --text: #2b2f2a;         /* near-black with green undertone */
+  --muted: #6a7569;        /* sage-toned muted text */
+  --white: #fefffe;
+  --card-bg: #ffffff;
+  --border: #cdd9cb;       /* sage-tinted border */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  background: var(--sage-pale);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: #1a2419;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid var(--gold);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 24px;
+}
+
+.logo-mark {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* SVG Purple Heart emblem */
+.logo-mark svg { width: 100%; height: 100%; }
+
+.header-text { flex: 1; }
+
+.header-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 1.6rem;
+  color: var(--white);
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.header-title strong {
+  font-weight: 600;
+  color: var(--gold-light);
+}
+
+.header-sub {
+  font-size: 0.68rem;
+  color: var(--sage-light);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.header-url {
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+/* ── WELCOME SCREEN ── */
+#welcome {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 40px;
+  background: linear-gradient(160deg, var(--sage-pale) 0%, #e4ede2 45%, var(--purple-pale) 100%);
+}
+
+.welcome-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 300;
+  color: var(--purple);
+  text-align: center;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+
+.welcome-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: center;
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+.welcome-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sage);
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.interest-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 680px;
+  margin-bottom: 36px;
+}
+
+.interest-btn {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 40px;
+  padding: 10px 22px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.22s ease;
+  letter-spacing: 0.03em;
+  position: relative;
+  overflow: hidden;
+}
+
+.interest-btn:hover {
+  border-color: var(--purple-light);
+  color: var(--purple);
+  background: var(--purple-pale);
+}
+
+.interest-btn.selected {
+  background: var(--purple);
+  border-color: var(--purple);
+  color: var(--white);
+}
+
+.interest-btn.selected::after {
+  content: ' ✓';
+  font-size: 0.75rem;
+}
+
+.note-area {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto 36px;
+}
+
+.note-area input {
+  width: 100%;
+  padding: 13px 18px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--text);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.note-area input:focus {
+  border-color: var(--purple-light);
+}
+
+.note-area input::placeholder { color: #aaa; }
+
+.show-btn {
+  background: var(--purple);
+  color: var(--white);
+  border: none;
+  padding: 15px 52px;
+  border-radius: 50px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 4px 20px rgba(92,61,107,0.22);
+}
+
+.show-btn:hover {
+  background: var(--purple-light);
+  box-shadow: 0 6px 28px rgba(92,61,107,0.30);
+  transform: translateY(-1px);
+}
+
+.welcome-note {
+  margin-top: 24px;
+  font-size: 0.72rem;
+  color: #aaa;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+#role-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 40px;
+  background: linear-gradient(160deg, var(--sage-pale) 0%, #e4ede2 45%, var(--purple-pale) 100%);
+}
+
+.role-cards {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 880px;
+  margin-bottom: 28px;
+}
+
+.role-card {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 22px;
+  width: 250px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.role-card:hover {
+  border-color: var(--sage);
+  box-shadow: 0 8px 28px rgba(74,94,73,0.12);
+  transform: translateY(-2px);
+}
+
+.role-card.selected {
+  border-color: var(--sage-deep);
+  background: #eef4ec;
+  box-shadow: 0 8px 28px rgba(74,94,73,0.16);
+}
+
+.role-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.role-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--purple);
+  line-height: 1.2;
+}
+
+.role-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.55;
+  font-weight: 300;
+}
+
+.role-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 600px;
+  width: 100%;
+  margin: 4px 0 20px;
+}
+
+.role-divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.role-divider-text {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.browse-link {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 40px;
+  padding: 11px 28px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.browse-link:hover {
+  border-color: var(--sage);
+  color: var(--sage-deep);
+}
+
+.role-next-btn {
+  background: var(--sage-deep);
+  color: var(--white);
+  border: none;
+  padding: 14px 48px;
+  border-radius: 50px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: 0 4px 18px rgba(74,94,73,0.22);
+  display: none;
+  margin-top: 8px;
+}
+
+.role-next-btn:hover {
+  background: var(--sage);
+  transform: translateY(-1px);
+}
+
+.role-next-btn.visible { display: inline-block; }
+
+/* ── BOOKS SCREEN ── */
+#books-screen {
+  display: none;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+.screen-intro {
+  background: var(--white);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.08rem;
+  font-style: italic;
+  color: var(--purple);
+  font-weight: 300;
+  line-height: 1.6;
+  position: relative;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 16px;
+  font-size: 0.78rem;
+  font-family: 'Jost', sans-serif;
+  color: var(--muted);
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.2s;
+}
+
+.back-btn:hover { color: var(--purple); border-color: var(--purple-light); }
+
+/* AI Bar */
+.ai-bar {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 28px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.ai-bar-icon {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, var(--purple), var(--gold));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  color: white;
+}
+
+.ai-bar-content { flex: 1; }
+
+.ai-bar-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.ai-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.ai-bar input {
+  flex: 1;
+  padding: 9px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.83rem;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+  font-weight: 300;
+}
+
+.ai-bar input:focus { border-color: var(--purple-light); }
+.ai-bar input::placeholder { color: #bbb; }
+
+.ai-ask-btn {
+  background: var(--sage-deep);
+  color: white;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.ai-ask-btn:hover { background: var(--sage); }
+.ai-ask-btn:disabled { opacity: 0.5; cursor: default; }
+
+.ai-response {
+  margin-top: 12px;
+  font-size: 0.84rem;
+  color: var(--text);
+  line-height: 1.65;
+  padding: 12px 14px;
+  background: var(--sage-pale);
+  border-radius: 8px;
+  display: none;
+  font-weight: 300;
+}
+
+/* Category Tabs */
+.cat-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.cat-tab {
+  padding: 8px 18px;
+  border-radius: 30px;
+  border: 1.5px solid var(--border);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  cursor: pointer;
+  background: var(--white);
+  color: var(--muted);
+  transition: all 0.2s;
+  font-weight: 400;
+  position: relative;
+}
+
+.cat-tab:hover { border-color: var(--sage-light); color: var(--sage); }
+
+.cat-tab.active {
+  background: var(--sage-deep);
+  border-color: var(--sage-deep);
+  color: white;
+}
+
+.cat-tab .count {
+  font-size: 0.66rem;
+  opacity: 0.7;
+  margin-left: 4px;
+}
+
+/* Book Grid */
+.books-header {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--purple);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.books-header-count {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.book-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.book-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(74,94,73,0.14);
+  border-color: var(--sage-light);
+}
+
+.book-cover {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, var(--sage-mid) 0%, var(--purple-pale) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.book-cover img.loaded { opacity: 1; }
+
+.cover-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+  gap: 8px;
+}
+
+.cover-ph-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--purple);
+  line-height: 1.35;
+  font-style: italic;
+}
+
+.cover-ph-divider {
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.cover-ph-author {
+  font-size: 0.65rem;
+  color: var(--sage);
+  letter-spacing: 0.05em;
+}
+
+.book-info {
+  padding: 12px 14px 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.book-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.book-author {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.book-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.book-tag {
+  background: var(--sage-mid);
+  color: var(--sage-deep);
+  font-size: 0.6rem;
+  padding: 2px 7px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+.no-link-note {
+  font-size: 0.65rem;
+  color: #bbb;
+  font-style: italic;
+}
+
+/* Loading shimmer */
+.shimmer {
+  background: linear-gradient(90deg, var(--sage-mid) 25%, #eaf0e8 50%, var(--sage-mid) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Search bar */
+.search-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+  font-weight: 300;
+  background: var(--white);
+}
+
+.search-input:focus { border-color: var(--purple-light); }
+
+/* Footer */
+footer {
+  background: #1a2419;
+  color: var(--sage-light);
+  text-align: center;
+  padding: 32px 24px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+}
+
+footer a { color: var(--gold); text-decoration: none; }
+
+/* Screen transitions */
+.fade-in {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .book-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .header-title { font-size: 1.2rem; }
+  .header-url { display: none; }
+  .ai-bar { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-mark">
+      <!-- Purple Heart emblem SVG -->
+      <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+        <!-- Water lily petals, simplified -->
+        <ellipse cx="26" cy="8" rx="5" ry="9" fill="#7a3fa0" opacity="0.7" transform="rotate(0 26 26)"/>
+        <ellipse cx="26" cy="8" rx="5" ry="9" fill="#8b4db5" opacity="0.6" transform="rotate(45 26 26)"/>
+        <ellipse cx="26" cy="8" rx="5" ry="9" fill="#9a5cc4" opacity="0.6" transform="rotate(90 26 26)"/>
+        <ellipse cx="26" cy="8" rx="5" ry="9" fill="#7a3fa0" opacity="0.6" transform="rotate(135 26 26)"/>
+        <ellipse cx="26" cy="8" rx="5" ry="9" fill="#8b4db5" opacity="0.5" transform="rotate(180 26 26)"/>
+        <ellipse cx="26" cy="8" rx="5" ry="9" fill="#9a5cc4" opacity="0.5" transform="rotate(225 26 26)"/>
+        <ellipse cx="26" cy="8" rx="5" ry="9" fill="#7a3fa0" opacity="0.5" transform="rotate(270 26 26)"/>
+        <ellipse cx="26" cy="8" rx="5" ry="9" fill="#8b4db5" opacity="0.5" transform="rotate(315 26 26)"/>
+        <!-- Gold center -->
+        <circle cx="26" cy="26" r="7" fill="#c9a227"/>
+        <circle cx="26" cy="26" r="5" fill="#e8c84a"/>
+        <!-- Heart shape (medal) -->
+        <path d="M26 42 C18 36 12 30 12 23 C12 18 16 14 20 14 C22 14 24 15.5 26 17.5 C28 15.5 30 14 32 14 C36 14 40 18 40 23 C40 30 34 36 26 42Z" fill="#4a2d6e" stroke="#c9a227" stroke-width="1.5"/>
+        <!-- Washington silhouette hint -->
+        <ellipse cx="26" cy="24" rx="4" ry="5" fill="#6b4a9a" opacity="0.6"/>
+      </svg>
+    </div>
+    <div class="header-text">
+      <div class="header-title"><strong>HEALING</strong> COMBAT TRAUMA</div>
+      <div class="header-sub">Curated books for veterans, families &amp; clinicians</div>
+      <div class="header-url">HealingCombatTrauma.com</div>
+    </div>
+  </div>
+</header>
+
+<!-- WELCOME SCREEN -->
+<!-- ── SCREEN 1: ROLE ── -->
+<section id="role-screen">
+  <div style="margin-bottom:28px; opacity:0.88;">
+    <svg viewBox="0 0 420 220" width="340" height="178" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+      <rect x="0" y="155" width="420" height="65" rx="4" fill="#c5d4c2" opacity="0.5"/>
+      <ellipse cx="175" cy="164" rx="115" ry="9" fill="#8fa08d" opacity="0.18"/>
+      <path d="M182 60 Q230 52 290 58 L295 158 Q235 152 182 160Z" fill="#f8f9f5" stroke="#b0c4ae" stroke-width="1"/>
+      <path d="M172 60 Q125 52 62 58 L58 158 Q118 152 172 160Z" fill="#fafbf7" stroke="#b0c4ae" stroke-width="1"/>
+      <path d="M172 60 L182 60 L182 160 L172 160Z" fill="#8fa08d"/>
+      <line x1="80" y1="82" x2="158" y2="80" stroke="#ccd8ca" stroke-width="1.2"/>
+      <line x1="80" y1="92" x2="158" y2="91" stroke="#ccd8ca" stroke-width="1.2"/>
+      <line x1="80" y1="102" x2="155" y2="101" stroke="#ccd8ca" stroke-width="1.2"/>
+      <line x1="80" y1="112" x2="158" y2="111" stroke="#ccd8ca" stroke-width="1.2"/>
+      <line x1="80" y1="122" x2="150" y2="121" stroke="#ccd8ca" stroke-width="1.2"/>
+      <line x1="80" y1="132" x2="158" y2="131" stroke="#ccd8ca" stroke-width="1.2"/>
+      <line x1="80" y1="142" x2="145" y2="141" stroke="#ccd8ca" stroke-width="1.2"/>
+      <line x1="196" y1="82" x2="275" y2="80" stroke="#ccd8ca" stroke-width="1.2"/>
+      <line x1="196" y1="92" x2="275" y2="91" stroke="#ccd8ca" stroke-width="1.2"/>
+      <line x1="196" y1="102" x2="270" y2="101" stroke="#ccd8ca" stroke-width="1.2"/>
+      <line x1="196" y1="112" x2="275" y2="111" stroke="#ccd8ca" stroke-width="1.2"/>
+      <line x1="196" y1="122" x2="268" y2="121" stroke="#ccd8ca" stroke-width="1.2"/>
+      <line x1="196" y1="132" x2="275" y2="131" stroke="#ccd8ca" stroke-width="1.2"/>
+      <line x1="80" y1="102" x2="155" y2="101" stroke="#d4aa50" stroke-width="3" opacity="0.45"/>
+      <path d="M258 52 L266 52 L266 80 L262 76 L258 80Z" fill="#8fa08d" opacity="0.7"/>
+      <ellipse cx="340" cy="162" rx="28" ry="5" fill="#8fa08d" opacity="0.15"/>
+      <rect x="314" y="112" width="52" height="52" rx="6" fill="#e8f0e6" stroke="#b0c4ae" stroke-width="1.2"/>
+      <path d="M366 125 Q386 125 386 137 Q386 149 366 149" fill="none" stroke="#b0c4ae" stroke-width="2" stroke-linecap="round"/>
+      <rect x="317" y="115" width="46" height="8" rx="3" fill="#c9a850" opacity="0.25"/>
+      <path d="M330 105 Q333 97 330 90" fill="none" stroke="#b0c4ae" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+      <path d="M340 102 Q343 92 340 84" fill="none" stroke="#b0c4ae" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+      <path d="M350 105 Q353 97 350 90" fill="none" stroke="#b0c4ae" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+      <rect x="314" y="135" width="52" height="4" rx="2" fill="#8fa08d" opacity="0.3"/>
+      <ellipse cx="54" cy="155" rx="14" ry="6" fill="#7d9c7b" opacity="0.4" transform="rotate(-25 54 155)"/>
+      <ellipse cx="44" cy="152" rx="10" ry="5" fill="#8fa08d" opacity="0.35" transform="rotate(-40 44 152)"/>
+      <line x1="54" y1="158" x2="54" y2="168" stroke="#7d9c7b" stroke-width="1.2" opacity="0.5"/>
+      <rect x="310" y="155" width="80" height="52" rx="3" fill="#eef3ec" stroke="#b0c4ae" stroke-width="1"/>
+      <line x1="322" y1="165" x2="378" y2="165" stroke="#ccd8ca" stroke-width="1"/>
+      <line x1="322" y1="173" x2="375" y2="173" stroke="#ccd8ca" stroke-width="1"/>
+      <line x1="322" y1="181" x2="370" y2="181" stroke="#ccd8ca" stroke-width="1"/>
+      <circle cx="313" cy="162" r="2" fill="#8fa08d" opacity="0.5"/>
+      <circle cx="313" cy="170" r="2" fill="#8fa08d" opacity="0.5"/>
+      <circle cx="313" cy="178" r="2" fill="#8fa08d" opacity="0.5"/>
+      <circle cx="313" cy="186" r="2" fill="#8fa08d" opacity="0.5"/>
+      <ellipse cx="175" cy="168" rx="90" ry="14" fill="#f0f6ee" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <div class="welcome-title">Welcome to Healing Combat Trauma</div>
+  <p class="welcome-sub">A curated library of books for veterans, their families, and the people who support them. Who are you visiting for today?</p>
+
+  <div class="role-cards">
+    <div class="role-card" data-role="veteran" onclick="selectRole(this)">
+      <div class="role-icon">🎖</div>
+      <div class="role-label">A veteran in my life</div>
+      <div class="role-desc">You're a partner, family member, friend, or caregiver looking to understand or support someone who has served.</div>
+    </div>
+    <div class="role-card" data-role="self" onclick="selectRole(this)">
+      <div class="role-icon">🌿</div>
+      <div class="role-label">My own healing</div>
+      <div class="role-desc">You're a veteran, survivor, or anyone navigating trauma and looking for books to support your own journey.</div>
+    </div>
+    <div class="role-card" data-role="clinician" onclick="selectRole(this)">
+      <div class="role-icon">📖</div>
+      <div class="role-label">Clinician or therapist</div>
+      <div class="role-desc">You work with veterans or trauma survivors and are looking for clinical resources, frameworks, or therapeutic guides.</div>
+    </div>
+  </div>
+
+  <button class="role-next-btn" id="role-next-btn" onclick="goToInterests()">Refine my search →</button>
+
+  <div class="role-divider">
+    <div class="role-divider-line"></div>
+    <div class="role-divider-text">or</div>
+    <div class="role-divider-line"></div>
+  </div>
+
+  <button class="browse-link" onclick="browseAll()">Just show me the books</button>
+  <p class="welcome-note" style="margin-top:20px;">220+ curated titles · Amazon Associates links · New books added regularly</p>
+</section>
+
+<!-- ── SCREEN 2: INTERESTS ── -->
+<section id="welcome" style="display:none;">
+  <div class="welcome-title" id="interest-title">What are you looking for?</div>
+  <p class="welcome-sub">Select any topics that apply — or skip straight to browsing.</p>
+
+  <div class="welcome-label">I'm interested in…</div>
+
+  <div class="interest-grid">
+    <button class="interest-btn" data-interest="family">Families &amp; partners</button>
+    <button class="interest-btn" data-interest="ptsd">PTSD &amp; trauma</button>
+    <button class="interest-btn" data-interest="bodywork">Mind-body</button>
+    <button class="interest-btn" data-interest="grief">Grief &amp; loss</button>
+    <button class="interest-btn" data-interest="moral">Moral injury</button>
+    <button class="interest-btn" data-interest="spirituality">Spirituality</button>
+    <button class="interest-btn" data-interest="suicide">Suicide &amp; loss</button>
+    <button class="interest-btn" data-interest="women_vets">Women veterans</button>
+    <button class="interest-btn" data-interest="women_stories">Women's stories</button>
+    <button class="interest-btn" data-interest="poetry">War poetry</button>
+    <button class="interest-btn" data-interest="photo">Photojournalism</button>
+    <button class="interest-btn" data-interest="civil_war">Civil War</button>
+    <button class="interest-btn" data-interest="wwi">WWI</button>
+    <button class="interest-btn" data-interest="wwii">WWII</button>
+    <button class="interest-btn" data-interest="vietnam">Vietnam War</button>
+    <button class="interest-btn" data-interest="iraq">Iraq &amp; Afghanistan</button>
+  </div>
+
+  <div class="note-area">
+    <input type="text" id="visitor-note" placeholder="Optional: anything else you'd like to tell us…">
+  </div>
+
+  <button class="show-btn" onclick="showBooks()">Show me books →</button>
+  <button class="browse-link" onclick="browseAll()" style="margin-top:12px;">Skip — show me everything</button>
+  <p style="margin-top:16px;"><button onclick="goBackToRole()" style="background:none;border:none;font-size:0.75rem;color:var(--muted);cursor:pointer;text-decoration:underline;">← Back</button></p>
+</section>
+
+<!-- BOOKS SCREEN -->
+<section id="books-screen">
+  <button class="back-btn" onclick="showWelcome()">← Start over</button>
+
+  <div class="screen-intro" id="screen-intro">
+    Here are books selected for you — browse by category below or search by title or author.
+  </div>
+
+  <!-- AI Assistant Bar -->
+  <div class="ai-bar">
+    <div class="ai-bar-icon">✦</div>
+    <div class="ai-bar-content">
+      <div class="ai-bar-label">Ask for a recommendation</div>
+      <div class="ai-input-row">
+        <input type="text" id="ai-question" placeholder="e.g., Which book is best for a spouse, not the veteran themselves?" onkeydown="if(event.key==='Enter') askAI()">
+        <button class="ai-ask-btn" onclick="askAI()" id="ai-btn">Ask</button>
+      </div>
+      <div class="ai-response" id="ai-response"></div>
+    </div>
+  </div>
+
+  <!-- Search -->
+  <div class="search-row">
+    <input type="text" class="search-input" id="search-input" placeholder="Search by title or author…" oninput="filterBooks()">
+  </div>
+
+  <!-- Category Tabs -->
+  <div class="cat-tabs" id="cat-tabs"></div>
+
+  <!-- Book Grid -->
+  <div class="books-header">
+    <span id="cat-title">All Books</span>
+    <span class="books-header-count" id="books-count"></span>
+  </div>
+  <div class="book-grid" id="book-grid"></div>
+</section>
+
+<footer>
+  <div>Healing Combat Trauma · HealingCombatTrauma.com</div>
+  <div style="margin-top:6px;">As an Amazon Associate, this site earns from qualifying purchases.</div>
+  <div style="margin-top:6px; opacity:0.5;">Books selected for veterans, their families, and the clinicians who serve them.</div>
+</footer>
+
+<script>
+// ── BOOK DATA ──
+const ALL_BOOKS = [{"author": "Walser, Robyn D.", "title": "Acceptance & Commitment Therapy for the Treatment of Post-Traumatic Stress Disorder: A Practitioner's Guide to Using Mindfulness & Acceptance Strategies", "link": "https://amzn.to/4tSbGXo", "isbn": "", "tags": ["For Clinicians"]}, {"author": "Graham, Frederick", "title": "The Bamboo Chest: An Adventure in Healing the Trauma of War", "link": "https://amzn.to/4wpPeGX", "isbn": "", "tags": ["Veterans' Memoirs", "Vietnam War"]}, {"author": "van der Kolk, Bessel A.", "title": "The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma", "link": "https://amzn.to/4tdgfdA", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Meshad, Shad", "title": "Captain for Dark Mornings: Hidden Struggles behind the Vietnam War", "link": "https://amzn.to/4d381i5", "isbn": "", "tags": ["Vietnam War"]}, {"author": "Whealin, Julia M.", "title": "Clinician's Guide to Treating Stress After War: Education and Coping Interventions for Veterans", "link": "https://amzn.to/4wdlPQ8", "isbn": "", "tags": ["For Clinicians", "Self-Help", "Veterans"]}, {"author": "Adsit, Chris", "title": "The Combat Trauma Healing Manual: Christ-centered Solutions for Combat Trauma", "link": "https://amzn.to/4n64G6L", "isbn": "", "tags": ["Spirituality"]}, {"author": "Deng, Ming-dao", "title": "365 Tao: Daily Meditations", "link": "https://amzn.to/4tOtiU3", "isbn": "", "tags": ["Self-Help", "Spirituality"]}, {"author": "Deng, Ming-dao", "title": "Everyday Tao: Living with Balance and Harmony", "link": "https://amzn.to/4n3CPUA", "isbn": "", "tags": []}, {"author": "Hendricks, Gay", "title": "Conscious Living : Finding Joy In the Real World", "link": "https://amzn.to/4d0u6Ox", "isbn": "", "tags": ["Spirituality"]}, {"author": "Olmer, Meg Daley", "title": "Made for Each Other: The Biology of the Human-Animal Bond (Merloyd Lawrence Books)", "link": "https://amzn.to/4282ORj", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Uriarte, Maximilian", "title": "The White Donkey: Terminal Lance", "link": "https://amzn.to/4d3DJMs", "isbn": "", "tags": ["Iraq & Afghanistan", "Veterans"]}, {"author": "Hickman, Martha Whitmore", "title": "Healing After Loss: Daily Meditations For Working Through Grief", "link": "https://amzn.to/4dlUH9Z", "isbn": "", "tags": ["Self-Help"]}, {"author": "Drozdek, Boris et al.", "title": "Voices of Trauma: Treating Psychological Trauma Across Cultures (International and Cultural Psychology)", "link": "https://amzn.to/4tbmVsE", "isbn": "", "tags": []}, {"author": "Combs, Gene", "title": "Narrative Therapy: The Social Construction of Preferred Realities", "link": "https://amzn.to/4taC0dW", "isbn": "", "tags": ["For Clinicians"]}, {"author": "Rothschild, Babette", "title": "The Body Remembers: The Psychophysiology of Trauma and Trauma Treatment", "link": "https://amzn.to/42ceX7O", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Siegel, Daniel J.", "title": "Healing Trauma: Attachment, Mind, Body, and Brain", "link": "https://amzn.to/4d67zjm", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Rothschild, Babette", "title": "The Body Remembers Casebook: Unifying Methods and Models in the Treatment of Trauma and PTSD", "link": "https://amzn.to/3P2pLSW", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Rothschild, Babette", "title": "Help for the Helper: The Psychophysiology of Compassion Fatigue and Vicarious Trauma", "link": "https://amzn.to/3QZfgQQ", "isbn": "", "tags": ["For Clinicians", "PTSD & Trauma"]}, {"author": "Minton, Kekuni", "title": "Trauma and the Body: A Sensorimotor Approach to Psychotherapy", "link": "https://amzn.to/4dl669X", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Boon, Suzette", "title": "Coping with Trauma-Related Dissociation: Skills Training for Patients and Therapists", "link": "https://amzn.to/4di5ulz", "isbn": "", "tags": []}, {"author": "Porges, Stephen W.", "title": "The Polyvagal Theory: Neurophysiological Foundations of Emotions, Attachment, Communication, and Self-regulation (Norton Series on Interpersonal Neurobiology)", "link": "https://amzn.to/42ceiTU", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Rosenthal, Michele", "title": "Your Life After Trauma: Powerful Practices to Reclaim Your Identity", "link": "https://amzn.to/4tWbQNC", "isbn": "", "tags": ["Mind-Body", "Self-Help"]}, {"author": "Kalsched, Donald", "title": "The Inner World of Trauma: Archetypal Defences of the Personal Spirit", "link": "https://amzn.to/4td1NT6", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "VanDevanter, Lynda", "title": "Visions of War, Dreams of Peace", "link": "https://amzn.to/4uqNo6O", "isbn": "", "tags": ["Vietnam War", "Women Veterans", "Women's Memoirs"]}, {"author": "Whealin, Julia M.", "title": "Strategies for Managing Stress After War: Veteran's Workbook and Guide to Wellness", "link": "https://amzn.to/4uvpbMK", "isbn": "", "tags": ["Self-Help", "Veterans"]}, {"author": "Naparstek, Belleruth", "title": "Invisible Heroes : Survivors of Trauma and How They Heal", "link": "https://amzn.to/4n7FZGN", "isbn": "", "tags": ["Self-Help"]}, {"author": "Dragicevic, Britta", "title": "Close to Home: A Soldier's Guide to Returning from War", "link": "https://amzn.to/48CqyAy", "isbn": "", "tags": ["Families & Partners", "Self-Help"]}, {"author": "Cantrell, Bridget C.", "title": "Once a Warrior: Wired For Life", "link": "https://amzn.to/4tJ5Wz2", "isbn": "", "tags": []}, {"author": "Shephard, Ben", "title": "A War of Nerves: Soldiers and Psychiatrists in the Twentieth Century", "link": "https://amzn.to/3QCZZ8p", "isbn": "", "tags": ["Vietnam War", "WWI", "WWII"]}, {"author": "Dean, Eric T. (Jr.)", "title": "Shook over Hell: Post-Traumatic Stress, Vietnam, and the Civil War", "link": "https://amzn.to/3QJScWh", "isbn": "", "tags": ["Civil War", "Vietnam War"]}, {"author": "Shay, Jonathan", "title": "Achilles in Vietnam: Combat Trauma and the Undoing of Character", "link": "https://amzn.to/4tbkmXw", "isbn": "", "tags": ["Vietnam War"]}, {"author": "Harris, Maxine", "title": "Trauma Recovery and Empowerment: A Clinician's Guide for Working with Women in Groups", "link": "https://amzn.to/4cX1vcM", "isbn": "", "tags": ["For Clinicians", "Women's Stories"]}, {"author": "Parrish, I.S.", "title": "Military Veterans PTSD Reference Manual", "link": "https://amzn.to/3QLpQLk", "isbn": "", "tags": ["Veterans"]}, {"author": "Shay, Jonathan", "title": "Odysseus in America: Combat Trauma and the Trials of Homecoming", "link": "https://amzn.to/48HBxZE", "isbn": "", "tags": ["Vietnam War"]}, {"author": "Kabat-Zinn, Jon", "title": "Mindfulness Meditation - Cultivating the Wisdom of Your Body and Mind", "link": "https://amzn.to/4tebgtd", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Danieli, Yael", "title": "The Trauma Of Terrorism: Sharing Knowledge And Shared Care, An International Handbook", "link": "https://amzn.to/4cWVyfW", "isbn": "", "tags": []}, {"author": "Coleman, Penny", "title": "Flashback: Posttraumatic Stress Disorder, Suicide, and the Lessons of War", "link": "https://amzn.to/42wuAqV", "isbn": "", "tags": ["Veterans", "Vietnam War"]}, {"author": "DeSalvo, Louise", "title": "Writing as a Way of Healing: How Telling Our Stories Transforms Our Lives", "link": "https://amzn.to/4dmWZWk", "isbn": "", "tags": []}, {"author": "Mikhail, Dunya", "title": "The War Works Hard", "link": "https://amzn.to/4uplt72", "isbn": "", "tags": ["Iraq & Afghanistan", "War Poetry"]}, {"author": "Breggin, Peter R.", "title": "The Heart of Being Helpful: Empathy and the Creation of a Healing Presence", "link": "https://amzn.to/4n6751h", "isbn": "", "tags": []}, {"author": "Bannerman, Stacy", "title": "When the War Came Home: The Inside Story of Reservists And the Families They Leave Behind", "link": "https://amzn.to/4wdmh0O", "isbn": "", "tags": ["Families & Partners", "Veterans"]}, {"author": "Tanielian, Terri", "title": "Invisible Wounds of War: Psychological and Cognitive Injuries, Their Consequences, and Services to Assist Recovery (2008)", "link": "https://amzn.to/42eHdXn", "isbn": "", "tags": ["Public Policy"]}, {"author": "Tick, Edward", "title": "War and the Soul: Healing Our Nation's Veterans from Post-traumatic Stress Disorder", "link": "https://amzn.to/4wdzd6S", "isbn": "", "tags": ["Moral Injury"]}, {"author": "Banitt, Susan Pease", "title": "The Trauma Tool Kit: Healing PTSD from the Inside Out", "link": "https://amzn.to/4tbYyew", "isbn": "", "tags": []}, {"author": "Carr, G. Lloyd", "title": "Fierce Goodbye: Living in the Shadow of Suicide", "link": "https://amzn.to/4w1Q3oV", "isbn": "", "tags": ["Suicide & Loss"]}, {"author": "Dick, Gary L.", "title": "Social Work Practice with Veterans", "link": "https://amzn.to/4cSFw6E", "isbn": "", "tags": ["For Clinicians"]}, {"author": "Scurfield, Raymond Monsour", "title": "Healing Journeys: Study Abroad With Vietnam Veterans (Vietnam Trilogy)", "link": "https://amzn.to/4wcwGtC", "isbn": "", "tags": ["Veterans' Memoirs", "Vietnam War"]}, {"author": "van der Kolk, Bessel A.", "title": "Psychological Trauma", "link": "https://amzn.to/42KBzfL", "isbn": "", "tags": []}, {"author": "Allen, Jon G.", "title": "Coping With Trauma: A Guide to Self-Understanding", "link": "https://amzn.to/4tW0VDC", "isbn": "", "tags": []}, {"author": "Spearman, Carey", "title": "Vietnam Veterans' Homecoming: Crossing the Line", "link": "https://amzn.to/4n9F5JZ", "isbn": "", "tags": ["Veterans' Memoirs", "Vietnam War"]}, {"author": "Dean, Chuck", "title": "Nam Vet : Making Peace with Your Past", "link": "https://amzn.to/4tW2rpi", "isbn": "", "tags": []}, {"author": "Himes, Andrew", "title": "Voices in Wartime: The Anthology", "link": "https://amzn.to/3QDDCQa", "isbn": "", "tags": ["Veterans", "War Poetry"]}, {"author": "Kingston, Maxine Hong", "title": "Veterans of War, Veterans of Peace", "link": "https://amzn.to/49s7DJ0", "isbn": "", "tags": ["Veterans"]}, {"author": "Cantrell, Bridget C.", "title": "Souls Under Siege: The Effects of Multiple Troop Deployments-and How to Weather the Storm", "link": "https://amzn.to/4uljqks", "isbn": "", "tags": []}, {"author": "Beder, Joan", "title": "Caring for the Military: A Guide for Helping Professionals", "link": "https://amzn.to/4d1xUz4", "isbn": "", "tags": ["For Clinicians"]}, {"author": "Delaney, Bob", "title": "Surviving the Shadows: A Journey of Hope into Post-Traumatic Stress", "link": "https://amzn.to/3R0Sqs2", "isbn": "", "tags": ["Self-Help", "Veterans"]}, {"author": "Marshall, Joseph M. (III)", "title": "Keep Going: The Art of Perseverance", "link": "https://amzn.to/4n2Cwt6", "isbn": "", "tags": ["Self-Help"]}, {"author": "Berceli, David", "title": "Trauma Releasing Exercises (TRE): A revolutionary new method for stress/trauma recovery", "link": "https://amzn.to/4dlO7QP", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Ainscough, Carolyn", "title": "Surviving Childhood Sexual Abuse Workbook: Practical Exercises For Working On Problems Resulting From Childhood Abuse", "link": "https://amzn.to/3OJa2Ip", "isbn": "", "tags": ["PTSD & Trauma", "Self-Help"]}, {"author": "Eckberg, Maryanna", "title": "Victims of Cruelty: Somatic Psychotherapy in the Healing of Posttraumatic Stress Disorder", "link": "https://amzn.to/4cLJZJM", "isbn": "", "tags": []}, {"author": "Emerson, David", "title": "Overcoming Trauma through Yoga: Reclaiming Your Body", "link": "https://amzn.to/4cZuAEu", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Zaczek, Ron", "title": "Farewell, Darkness: A Veteran's Triumph over Combat Trauma", "link": "https://amzn.to/4elCM4g", "isbn": "", "tags": ["Veterans", "Veterans' Memoirs", "Vietnam War"]}, {"author": "Bryant, Richard A.", "title": "Acute Stress Disorder: A Handbook of Theory, Assessment, and Treatment", "link": "https://amzn.to/48EO0gJ", "isbn": "", "tags": ["For Clinicians"]}, {"author": "Doka, Kenneth", "title": "Living With Grief: After Sudden Loss Suicide, Homicide, Accident, Heart Attack, Stroke", "link": "https://amzn.to/4evqvdL", "isbn": "", "tags": ["Grief & Loss", "Self-Help"]}, {"author": "Armstrong, Keith", "title": "Courage After Fire : Coping Strategies for Returning Soldiers and Their Families", "link": "https://amzn.to/4tmWOzm", "isbn": "", "tags": []}, {"author": "Matsakis, Aphrodite", "title": "I Can't Get Over It: A Handbook for Trauma Survivors", "link": "https://amzn.to/4d83USd", "isbn": "", "tags": ["Self-Help"]}, {"author": "Matsakis, Aphrodite", "title": "Trust after Trauma: A Guide to Relationships for Survivors and Those Who Love Them", "link": "https://amzn.to/3QLCn1q", "isbn": "", "tags": ["Families & Partners"]}, {"author": "Williams, Mary Beth", "title": "The PTSD Workbook: Simple, Effective Techniques for Overcoming Traumatic Stress Symptoms", "link": "https://amzn.to/3QMuski", "isbn": "", "tags": ["Self-Help"]}, {"author": "McCaig, Mari", "title": "Healing the Trauma of Domestic Violence: A Workbook for Women (New Harbinger Self-Help Workbook)", "link": "https://amzn.to/4n6fsKf", "isbn": "", "tags": ["Self-Help", "Women's Stories"]}, {"author": "Matsakis, Aphrodite", "title": "In Harm's Way: Help for the Wives of Military Men, Police, Emts, & Firefighters", "link": "https://amzn.to/42eCPrn", "isbn": "", "tags": ["Families & Partners"]}, {"author": "Davis, Martha", "title": "The Relaxation & Stress Reduction Workbook (New Harbinger Self-Help Workbook)", "link": "https://amzn.to/42evmbP", "isbn": "", "tags": []}, {"author": "Block, Stanley", "title": "Mind-body Workbook for PTSD: A 10 Week Program for Healing After Trauma", "link": "https://amzn.to/3OTBjYH", "isbn": "", "tags": ["Self-Help"]}, {"author": "van der Kolk, Bessel A.", "title": "Traumatic Stress: The Effects of Overwhelming Experience on Mind, Body, and Society", "link": "https://amzn.to/49kBoeH", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Lipsky, Laura van Dernoot", "title": "Trauma Stewardship: An Everyday Guide to Caring for Self While Caring for Others", "link": "https://amzn.to/48E9Hxj", "isbn": "", "tags": ["Self-Help"]}, {"author": "Holden, Lee", "title": "7 Minutes of Magic: Recharge Your Body Each Day with Qi Gong", "link": "https://amzn.to/42cFe5P", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Kaparo, Risa F.", "title": "Awakening Somatic Intelligence: The Art and Practice of Embodied Mindfulness", "link": "https://amzn.to/4d7hViX", "isbn": "", "tags": ["Mind-Body", "Self-Help"]}, {"author": "Allen, Jon G.", "title": "Coping With Trauma: Hope Through Understanding", "link": "https://amzn.to/3QMuOYf", "isbn": "", "tags": []}, {"author": "Thomas, Claude Anshin", "title": "At Hell's Gate : A Soldier's Journey from War to Peace", "link": "https://amzn.to/4w81zzc", "isbn": "", "tags": ["Veterans", "Veterans' Memoirs", "Vietnam War"]}, {"author": "Forbes, Bo", "title": "Yoga for Emotional Balance: Simple Practices to Help Relieve Anxiety and Depression", "link": "https://amzn.to/48Hvqoa", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Kabat-Zinn, Jon", "title": "Guided Mindfulness Meditation", "link": "https://amzn.to/4wduamW", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Holden, Lee", "title": "The Qi Healing Kit: Energy Practices for Health and Vitality", "link": "https://amzn.to/4tJK4nf", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Arden, John B.", "title": "Conquering Post-Traumatic Stress Disorder: The Newest Techniques for Overcoming Symptoms, Regaining Hope, and Getting Your Life Back", "link": "https://amzn.to/3RiA1af", "isbn": "", "tags": []}, {"author": "Orange, Cynthia", "title": "Shock Waves: A Practical Guide to Living with a Loved One's PTSD", "link": "https://amzn.to/4w8mjH8", "isbn": "", "tags": ["Families & Partners"]}, {"author": "Isay, Dave", "title": "Listening Is an Act of Love: A Celebration of American Life from the StoryCorps Project", "link": "https://amzn.to/4ulcCmP", "isbn": "", "tags": ["Veterans' Memoirs"]}, {"author": "Jawer, Michael A.", "title": "Your Emotional Type: Key to the Therapies That Will Work for You", "link": "https://amzn.to/4d82zLb", "isbn": "", "tags": ["Self-Help"]}, {"author": "England, Diane", "title": "The Post Traumatic Stress Disorder Relationship: How to Support Your Partner and Keep Your Relationship Healthy", "link": "https://amzn.to/3RiGYYQ", "isbn": "", "tags": ["Families & Partners"]}, {"author": "Friedman, Matthew J.", "title": "After the War Zone: A Practical Guide for Returning Troops and Their Families", "link": "https://amzn.to/3P19eyr", "isbn": "", "tags": ["Families & Partners"]}, {"author": "Craig, Gary", "title": "EFT for PTSD", "link": "https://amzn.to/48ytVIU", "isbn": "", "tags": ["Mind-Body"]}, {"author": "NurrieStearns, Mary", "title": "Yoga for Emotional Trauma: Meditations and Practices for Healing Pain and Suffering", "link": "https://amzn.to/42cPXgB", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Mendelsohn, Michaela", "title": "The Trauma Recovery Group: A Guide for Practitioners", "link": "https://amzn.to/42MqWsM", "isbn": "", "tags": ["For Clinicians"]}, {"author": "Sprague, Debbie", "title": "A Stranger In My Bed: 8 Steps to Taking Your Life Back From the Contagious Effects of Your Veteran's Post-Traumatic Stress Disorder", "link": "https://amzn.to/4tfgi8V", "isbn": "", "tags": ["Families & Partners", "Vietnam War"]}, {"author": "Tick, Edward", "title": "Warrior's Return: Restoring the Soul After War", "link": "https://amzn.to/4w93uDx", "isbn": "", "tags": ["Moral Injury"]}, {"author": "Naparstek, Belleruth", "title": "Health Journeys: A Guided Meditation for Healing Trauma (PTSD)", "link": "https://amzn.to/3QY7DKr", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Naparstek, Belleruth", "title": "Health Journeys: Guided Imagery for the Three Stages of Healing Trauma", "link": "https://amzn.to/3P1d6zt", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Matsakis, Aphrodite", "title": "Vietnam Wives: Facing the Challenges of Life With Veterans Suffering Post-Traumatic Stress", "link": "https://amzn.to/4w8YEWT", "isbn": "", "tags": ["Families & Partners", "Vietnam War"]}, {"author": "Matsakis, Aphrodite", "title": "Back from the Front: Combat Trauma, Love, and the Family", "link": "https://amzn.to/4d1PiUh", "isbn": "", "tags": ["Families & Partners"]}, {"author": "Mason, Patience H.C.", "title": "Recovering from the War: A Woman's Guide to Helping Your Vietnam Vet, Your Family, and Yourself", "link": "https://amzn.to/3P01A7u", "isbn": "", "tags": ["Families & Partners", "Veterans", "Vietnam War"]}, {"author": "Origer, Tim", "title": "Purple Hearts: Back from Iraq", "link": "https://amzn.to/4tQVvcV", "isbn": "", "tags": ["Iraq & Afghanistan", "Photojournalism"]}, {"author": "Newhouse, Eric", "title": "Faces of Combat, PTSD and TBI: One Journalist's Crusade to Improve Treatment for Our Veterans", "link": "https://amzn.to/4w54clc", "isbn": "", "tags": ["Iraq & Afghanistan", "Public Policy"]}, {"author": "Volkman, Victor R.", "title": "Beyond Trauma: Conversations on Traumatic Incident Reduction, Second Edition", "link": "https://amzn.to/49qOjvH", "isbn": "", "tags": ["For Clinicians"]}, {"author": "Brookshire, Nate", "title": "Hidden Wounds: A Soldier's Burden", "link": "https://amzn.to/3P3Kl5f", "isbn": "", "tags": ["Veterans"]}, {"author": "Billings, Bart P.", "title": "Invisible Scars: How to Treat Combat Stress and PTSD without Medication", "link": "https://amzn.to/4uoJ47V", "isbn": "", "tags": ["Self-Help"]}, {"author": "Willis, Brad", "title": "Warrior Pose: How Yoga (Literally) Saved My Life", "link": "https://amzn.to/3PkCtfQ", "isbn": "", "tags": ["Mind-Body", "Photojournalism"]}, {"author": "Evenson, Dean", "title": "Sound Healing", "link": "https://amzn.to/4d05JjR", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Evenson, Dean", "title": "Tao of Healing", "link": "https://amzn.to/48CRi3W", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Evenson, Dean", "title": "Healing Sanctuary", "link": "https://amzn.to/4upS64u", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Evenson, Dean", "title": "Tao of Peace", "link": "https://amzn.to/4tiUol7", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Tourin, Christina", "title": "Emerald Harp", "link": "https://amzn.to/4cKnrck", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Williams, Tom", "title": "Post-Traumatic Stress Disorders: A Handbook for Clinicians", "link": "https://amzn.to/4t86z45", "isbn": "", "tags": ["For Clinicians"]}, {"author": "Kabat-Zinn, Jon", "title": "Mindfulness for Beginners", "link": "https://amzn.to/3P00Krm", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Yoga Journal", "title": "Yoga Journal's Yoga for Stress With Dr. Baxter Bell", "link": "https://amzn.to/4tgVE8i", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Weil, Andrew", "title": "Relax & De-Stress, Music for Self-Healing", "link": "https://amzn.to/4tODV9d", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Evenson, Dean", "title": "Eagle River: At Ease Relaxation Series", "link": "https://amzn.to/4di7qKR", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Grant, Robert", "title": "The Way of the Wound: A Spirituality of Trauma and Transformation", "link": "https://amzn.to/4cPpDiR", "isbn": "", "tags": ["Spirituality"]}, {"author": "Thompson, Jeffrey D.", "title": "The Delta Sleep System", "link": "https://amzn.to/3PlWu5L", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Porges, Stephen W.", "title": "The Pocket Guide to Polyvagal Theory: The Transformative Power of Feeling Safe", "link": "https://amzn.to/4weTZTB", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Zabriskie, Phil", "title": "The Kill Switch (Kindle Single)", "link": "https://amzn.to/3OVdobk", "isbn": "", "tags": ["Veterans"]}, {"author": "Garner, Cynthia", "title": "Fierce Boundaries: Practical Skills and Somatic Exercises for Healing in a Traumatized World", "link": "https://amzn.to/4tMXFdj", "isbn": "", "tags": ["Self-Help"]}, {"author": "Gallo, Fred", "title": "Energy Tapping for Trauma: Rapid Relief from Post-Traumatic Stress Using Energy Psychology", "link": "https://amzn.to/4n9jmSw", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Morris, David J.", "title": "The Evil Hours: A Biography of Post-Traumatic Stress Disorder", "link": "https://amzn.to/3OGWltz", "isbn": "", "tags": ["Veterans"]}, {"author": "White, Jerry", "title": "Getting Up When Life Knocks You Down: Five Steps to Overcoming a Life Crisis", "link": "https://amzn.to/4ulwmqw", "isbn": "", "tags": ["Self-Help"]}, {"author": "Westberg, Granger E.", "title": "Good Grief", "link": "https://amzn.to/4w4qi7u", "isbn": "", "tags": ["Grief & Loss", "Spirituality"]}, {"author": "Worden, J. William", "title": "Grief Counseling and Grief Therapy, Fourth Edition: A Handbook for the Mental Health Practitioner", "link": "https://amzn.to/3Pj0ST1", "isbn": "", "tags": ["For Clinicians", "Grief & Loss"]}, {"author": "Egendorf, Arthur", "title": "Healing from the War: Trauma and Transformation After Vietnam", "link": "https://amzn.to/3QPWhrW", "isbn": "", "tags": ["PTSD & Trauma", "Veterans", "Vietnam War"]}, {"author": "Dreazen, Yochi", "title": "The Invisible Front: Love and Loss in an Era of Endless War", "link": "https://amzn.to/4n6HDsp", "isbn": "", "tags": ["Iraq & Afghanistan", "Veterans"]}, {"author": "Raddatz, Martha", "title": "The Long Road Home: A Story of War and Family", "link": "https://amzn.to/4tJfQkc", "isbn": "", "tags": ["Iraq & Afghanistan", "Photojournalism"]}, {"author": "Figley, Charles R. (Editor)", "title": "Mapping Trauma and Its Wake: Autobiographic Essays by Pioneer Trauma Scholars", "link": "https://amzn.to/4dmYeos", "isbn": "", "tags": ["Veterans"]}, {"author": "Meagher, Ilona", "title": "Moving a Nation to Care: Post-Traumatic Stress Disorder and America's Returning Troops", "link": "https://amzn.to/48A7cft", "isbn": "", "tags": ["Public Policy"]}, {"author": "Mahedy, William P.", "title": "Out Of The Night: The Spiritual Journey of Vietnam Vets", "link": "https://amzn.to/4n9E4S7", "isbn": "", "tags": ["Spirituality", "Veterans", "Vietnam War"]}, {"author": "Schiraldi, Glenn R.", "title": "Post-Traumatic Stress Disorder Sourcebook", "link": "https://amzn.to/4uqKZsO", "isbn": "", "tags": ["Self-Help"]}, {"author": "Kohanov, Linda", "title": "The Power of the Herd: A Nonpredatory Approach to Social Intelligence, Leadership, and Innovation", "link": "https://amzn.to/3P2V3sT", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Stien, Phyllis", "title": "Psychological Trauma and the Developing Brain: Neurologically Based Interventions for Troubled Children", "link": "https://amzn.to/3OKUO5H", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Kraft, Heidi Squier", "title": "Rule Number Two: Lessons I Learned in a Combat Hospital", "link": "https://amzn.to/3QHPgtj", "isbn": "", "tags": ["Iraq & Afghanistan", "Veterans' Memoirs"]}, {"author": "Thompson, Jeffrey D.", "title": "Sleepy Ocean", "link": "https://amzn.to/4dmhX7J", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Brock, Rita Nakashima", "title": "Soul Repair: Recovering from Moral Injury after War", "link": "https://amzn.to/4w8Zvqz", "isbn": "", "tags": ["Moral Injury", "Veterans"]}, {"author": "Weil, Andrew", "title": "Sound Body, Sound Mind: Music for Healing", "link": "https://amzn.to/4cRrjIF", "isbn": "", "tags": ["Mind-Body"]}, {"author": "O'Brien, Tim", "title": "The Things They Carried", "link": "https://amzn.to/49oeGCs", "isbn": "", "tags": ["Vietnam War"]}, {"author": "Lanham, Stephanie Laite", "title": "Veterans and Families' Guide to Recovering from PTSD", "link": "https://amzn.to/4n5TKWy", "isbn": "", "tags": ["Families & Partners"]}, {"author": "Scurfield, Raymond Monsour", "title": "A Vietnam Trilogy: Veterans And Post Traumatic Stress: 1968, 1989, 2000", "link": "https://amzn.to/3P1ety7", "isbn": "", "tags": ["Veterans' Memoirs", "Vietnam War"]}, {"author": "Figley, Charles R.", "title": "Strangers at Home: Vietnam Veterans Since the War", "link": "https://amzn.to/428e0xg", "isbn": "", "tags": ["Veterans", "Vietnam War"]}, {"author": "Figley, Charles R.", "title": "Stress Disorders Among Vietnam Veterans: Theory, Research", "link": "https://amzn.to/428yJB9", "isbn": "", "tags": ["Vietnam War"]}, {"author": "Figley, Charles R.", "title": "Treating Compassion Fatigue (Brunner/Mazel Psychosocial Stress Series)", "link": "https://amzn.to/4d3sTpK", "isbn": "", "tags": ["For Clinicians", "Vietnam War"]}, {"author": "Fine, Carla", "title": "No Time to Say Goodbye: Surviving The Suicide Of A Loved One", "link": "https://amzn.to/4t5OraZ", "isbn": "", "tags": ["Suicide & Loss"]}, {"author": "Finley, Erin P.", "title": "Fields of Combat: Understanding PTSD among Veterans of Iraq and Afghanistan", "link": "https://amzn.to/4d3cZvk", "isbn": "801478405", "tags": ["Iraq & Afghanistan", "Veterans"]}, {"author": "Foa, Edna B. et al.", "title": "Effective Treatments for PTSD: Practice Guidelines from the International Society for Traumatic Stress Studies", "link": "https://amzn.to/42QuXMN", "isbn": "", "tags": ["For Clinicians", "PTSD & Trauma"]}, {"author": "France, Duane K.L.", "title": "Combat Vet Don't Mean Crazy: Veteran Mental Health in Post-Military Life", "link": "https://amzn.to/4tPK0lO", "isbn": "996318143", "tags": ["Veterans"]}, {"author": "Friedman, Matthew J.", "title": "Handbook of PTSD: Science and Practice", "link": "https://amzn.to/3QPZXtK", "isbn": "", "tags": ["For Clinicians", "PTSD & Trauma"]}, {"author": "Gabriel, Richard A.", "title": "Military Psychiatry: A Comparative Perspective", "link": "https://amzn.to/4wePmsH", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Gabriel, Richard A.", "title": "No More Heroes: Madness and Psychiatry In War", "link": "https://amzn.to/48FFgXA", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Goulston, Mark", "title": "Post-Traumatic Stress Disorder For Dummies", "link": "https://amzn.to/4nqtwyt", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Grossman, Dave", "title": "On Killing: The Psychological Cost of Learning to Kill in War and Society", "link": "https://amzn.to/4uiDbcu", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Halpern, Steven", "title": "Effortless Relaxation", "link": "https://amzn.to/4dmnvPD", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Halpern, Steven", "title": "Music for Healing & Unwinding: Two Pioneers in the Emerging Field of Sound Healing", "link": "https://amzn.to/4nfeXxy", "isbn": "", "tags": ["Mind-Body"]}, {"author": "Handy, Marla", "title": "No Comfort Zone: Notes on Living with Post Traumatic Stress Disorder", "link": "https://amzn.to/4uvU7fL", "isbn": "", "tags": ["Self-Help"]}, {"author": "Hart, Ashley B.", "title": "An Operators Manual for Combat PTSD: Essays for Coping", "link": "https://amzn.to/3P3QG0x", "isbn": "", "tags": ["Veterans"]}, {"author": "Herman, Judith", "title": "Trauma and Recovery: The Aftermath of Violence--from Domestic Abuse to Political Terror", "link": "https://amzn.to/4tRyUwT", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Hoge, Charles W.", "title": "Once a Warrior -- Always a Warrior: Navigating the Transition from Combat to Home", "link": "https://amzn.to/3QLjUC0", "isbn": "", "tags": []}, {"author": "Hudgins, M. Katherine", "title": "Experiential Treatment for PTSD: The Therapeutic Spiral Model", "link": "https://amzn.to/48BUbC5", "isbn": "", "tags": ["For Clinicians"]}, {"author": "Jamison, Kay Redfield", "title": "Night Falls Fast: Understanding Suicide", "link": "https://amzn.to/4dmca1Z", "isbn": "", "tags": ["Suicide & Loss"]}, {"author": "Junger, Sebastian", "title": "Tribe: On Homecoming and Belonging", "link": "https://amzn.to/4dnu98c", "isbn": "", "tags": ["Veterans"]}, {"author": "Levine, Peter A.", "title": "Healing Trauma: A Pioneering Program for Restoring the Wisdom of Your Body", "link": "https://amzn.to/4vXJNhY", "isbn": "", "tags": ["For Clinicians"]}, {"author": "Levine, Peter A.", "title": "In an Unspoken Voice: How the Body Releases Trauma and Restores Goodness", "link": "https://amzn.to/49qID4R", "isbn": "", "tags": []}, {"author": "Levine, Peter A.", "title": "Waking the Tiger : Healing Trauma : The Innate Capacity to Transform Overwhelming Experiences", "link": "https://amzn.to/3QY6qmn", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Lukas, Christopher", "title": "Silent Grief: Living in the Wake of Suicide", "link": "https://amzn.to/49e8NYz", "isbn": "", "tags": ["Self-Help", "Suicide & Loss"]}, {"author": "Macfarland, Ellen", "title": "The Sacred Path Beyond Trauma: Reaching the Divine Through Nature's Healing Symbols", "link": "https://amzn.to/4did2op", "isbn": "", "tags": ["Spirituality"]}, {"author": "Montgomery, Victor III", "title": "Healing Suicidal Veterans: Recognizing, Supporting and Answering Their Pleas for Help", "link": "https://amzn.to/3QLqpEU", "isbn": "", "tags": ["Suicide & Loss", "Veterans"]}, {"author": "Morgan, Alice", "title": "What is Narrative Therapy?: An Easy to Read Introduction", "link": "https://amzn.to/4n54iW9", "isbn": "", "tags": ["For Clinicians", "Self-Help"]}, {"author": "Myers, Michael F.", "title": "Touched by Suicide: Hope and Healing After Loss", "link": "https://amzn.to/4d1Hsdo", "isbn": "", "tags": ["Self-Help", "Suicide & Loss"]}, {"author": "Ochberg, Frank", "title": "Post-Traumatic Therapy and Victims Of Violence", "link": "https://amzn.to/4taATLy", "isbn": "", "tags": ["PTSD & Trauma"]}, {"author": "Ouimette, Paige", "title": "Trauma and Substance Abuse: Causes, Consequences, and Treatment of Comorbid Disorders", "link": "https://amzn.to/3QZeF1y", "isbn": "", "tags": ["For Clinicians", "PTSD & Trauma"]}, {"author": "Paulson, Daryl S.", "title": "Haunted by Combat: Understanding PTSD in War Veterans Including Women, Reservists, and Those Coming Back from Iraq", "link": "https://amzn.to/42fsaN2", "isbn": "", "tags": ["Veterans"]}, {"author": "Pennebaker, James W.", "title": "Expressive Writing: Words That Heal", "link": "https://amzn.to/4tR2geM", "isbn": "", "tags": ["Self-Help"]}, {"author": "Pennebaker, James W.", "title": "Writing to Heal: A Guided Journal for Recovering from Trauma and Emotional Upheaval", "link": "https://amzn.to/499o3G4", "isbn": "", "tags": ["Self-Help"]}, {"author": "Rothschild, Babette", "title": "8 Keys to Safe Trauma Recovery: Take-Charge Strategies to Empower Your Healing", "link": "https://amzn.to/4tWbQNC", "isbn": "", "tags": ["PTSD & Trauma", "Self-Help"]}, {"author": "Scurfield, Raymond Monsour", "title": "War Trauma: Lessons Unlearned, From Vietnam to Iraq", "link": "https://amzn.to/49kzj2n", "isbn": "", "tags": ["Iraq & Afghanistan", "Veterans"]}, {"author": "Shapiro, Francine", "title": "EMDR : The Breakthrough Therapy for Overcoming Anxiety, Stress, and Trauma", "link": "https://amzn.to/4epfvyv", "isbn": "", "tags": ["For Clinicians", "PTSD & Trauma"]}, {"author": "Shapiro, Francine", "title": "Eye Movement Desensitization and Reprocessing (EMDR), Second Edition: Basic Principles, Protocols, and Procedures", "link": "https://amzn.to/4cSPKny", "isbn": "", "tags": ["For Clinicians", "PTSD & Trauma"]}, {"author": "Sherman, Nancy", "title": "The Untold War: Inside the Hearts, Minds, and Souls of Our Soldiers", "link": "https://amzn.to/4wncVj4", "isbn": "", "tags": ["Veterans"]}, {"author": "Shneidman, Edwin S.", "title": "Autopsy of a Suicidal Mind", "link": "https://amzn.to/4w6RKl9", "isbn": "", "tags": ["Suicide & Loss"]}, {"author": "Shneidman, Edwin S.", "title": "The Suicidal Mind", "link": "https://amzn.to/4eZYCul", "isbn": "", "tags": ["Suicide & Loss"]}, {"author": "Sites, Kevin", "title": "The Things They Cannot Say: Stories Soldiers Won't Tell You About What They've Seen, Done or Failed to Do in War", "link": "https://amzn.to/4eqGUA8", "isbn": "", "tags": ["Veterans", "Veterans' Memoirs"]}, {"author": "Smolin, Ann", "title": "Healing After the Suicide of a Loved One", "link": "https://amzn.to/4eZkTIE", "isbn": "", "tags": ["Self-Help", "Suicide & Loss"]}, {"author": "Snow, Amy", "title": "The Endless Tour: Vietnam, PTSD, and the Spiritual Void", "link": "https://amzn.to/4w8CO5Z", "isbn": "", "tags": ["Spirituality", "Vietnam War"]}, {"author": "Ketwig, John", "title": "And a Hard Rain Fell: A GI's True Story of the War in Vietnam", "link": "https://amzn.to/4npWH4r", "isbn": "", "tags": ["Veterans", "Veterans' Memoirs", "Vietnam War"]}, {"author": "Anderson, Thorne", "title": "Unembedded: Four Independent Photojournalists on the War in Iraq", "link": "https://amzn.to/4u0yww4", "isbn": "", "tags": ["Iraq & Afghanistan", "Photojournalism"]}, {"author": "Capa, Robert", "title": "D-Day", "link": "https://amzn.to/4tZZFiP", "isbn": "", "tags": ["Photojournalism", "WWII"]}, {"author": "Faas, Horst", "title": "Requiem: By the Photographers Who Died in Vietnam and Indochina", "link": "https://amzn.to/48JKYHZ", "isbn": "", "tags": ["Photojournalism", "Vietnam War"]}, {"author": "Friedman, Devin", "title": "This Is Our War: A Soldiers' Portfolio: Servicemen's Photographs of Life in Iraq", "link": "https://amzn.to/4utGBsS", "isbn": "", "tags": ["Iraq & Afghanistan", "Photojournalism"]}, {"author": "Golden, Reuel", "title": "Photojournalism: 150 Years of Outstanding Press Photography", "link": "https://amzn.to/4f8HX7Y", "isbn": "", "tags": ["Photojournalism", "Vietnam War", "WWII"]}, {"author": "Howe, Peter", "title": "Shooting Under Fire: The World of the War Photographer", "link": "https://amzn.to/4uBQ4hT", "isbn": "", "tags": ["Iraq & Afghanistan", "Photojournalism", "Vietnam War"]}, {"author": "Miller, Russell", "title": "Magnum: Fifty Years at the Front Line of History: The Story of the Legendary Photo Agency", "link": "https://amzn.to/3QZMn7a", "isbn": "", "tags": ["Photojournalism", "WWII"]}, {"author": "Nachtwey, James", "title": "Deeds of War", "link": "https://amzn.to/42q7r9p", "isbn": "", "tags": ["Iraq & Afghanistan", "Photojournalism", "Vietnam War"]}, {"author": "Rosenheim, Jeff L.", "title": "Photography and the American Civil War (Metropolitan Museum of Art)", "link": "https://amzn.to/4wcNYXz", "isbn": "", "tags": ["Civil War", "Photojournalism"]}, {"author": "Sullivan, George", "title": "In the Wake of Battle: The Civil War Images of Mathew Brady", "link": "https://amzn.to/4trnHBT", "isbn": "", "tags": ["Civil War", "Photojournalism"]}, {"author": "Tucker, Anne Wilkes", "title": "War/Photography: Images of Armed Conflict and Its Aftermath (Museum of Fine Arts, Houston)", "link": "https://amzn.to/4tXQUpc", "isbn": "", "tags": ["Iraq & Afghanistan", "Photojournalism", "Vietnam War", "WWII"]}, {"author": "Whelan, Richard", "title": "Robert Capa: Photographs (Aperture Monograph)", "link": "https://amzn.to/4dhcyOf", "isbn": "", "tags": ["Photojournalism"]}, {"author": "Whelan, Richard", "title": "Robert Capa: The Definitive Collection", "link": "https://amzn.to/48JDmW2", "isbn": "", "tags": ["Photojournalism"]}];
+
+// ── INTEREST → TAG MAPPING ──
+const INTEREST_MAP = {
+  family:        ['Families & Partners'],
+  ptsd:          ['PTSD & Trauma'],
+  bodywork:      ['Mind-Body'],
+  grief:         ['Grief & Loss'],
+  moral:         ['Moral Injury'],
+  spirituality:  ['Spirituality'],
+  suicide:       ['Suicide & Loss'],
+  women_vets:    ['Women Veterans', "Women's Memoirs"],
+  women_stories: ["Women's Stories", "Women's Memoirs"],
+  photo:         ['Photojournalism'],
+  poetry:        ['War Poetry'],
+  vietnam:       ['Vietnam War'],
+  iraq:          ['Iraq & Afghanistan'],
+  civil_war:     ['Civil War'],
+  wwi:           ['WWI'],
+  wwii:          ['WWII'],
+  policy:        ['Public Policy'],
+  browse:        []
+};
+
+// CATEGORY TABS
+const CAT_CONFIG = [
+  { id: 'all',           label: 'All Books',           tags: [] },
+  { id: 'ptsd',          label: 'PTSD & Trauma',        tags: ['PTSD & Trauma'] },
+  { id: 'moral',         label: 'Moral Injury',         tags: ['Moral Injury'] },
+  { id: 'spirituality',  label: 'Spirituality',         tags: ['Spirituality'] },
+  { id: 'grief',         label: 'Grief & Loss',         tags: ['Grief & Loss'] },
+  { id: 'suicide',       label: 'Suicide & Loss',       tags: ['Suicide & Loss'] },
+  { id: 'bodywork',      label: 'Mind-Body',            tags: ['Mind-Body'] },
+  { id: 'selfhelp',      label: 'Self-Help',            tags: ['Self-Help'] },
+  { id: 'families',      label: 'Families & Partners',  tags: ['Families & Partners'] },
+  { id: 'vet_memoirs',   label: "Veterans' Memoirs",    tags: ["Veterans' Memoirs"] },
+  { id: 'women_memoirs', label: "Women's Memoirs",      tags: ["Women's Memoirs"] },
+  { id: 'women_vets',    label: 'Women Veterans',       tags: ['Women Veterans'] },
+  { id: 'women_stories', label: "Women's Stories",      tags: ["Women's Stories"] },
+  { id: 'poetry',        label: 'War Poetry',           tags: ['War Poetry'] },
+  { id: 'photo',         label: 'Photojournalism',      tags: ['Photojournalism'] },
+  { id: 'civil_war',     label: 'Civil War',            tags: ['Civil War'] },
+  { id: 'wwi',           label: 'WWI',                  tags: ['WWI'] },
+  { id: 'wwii',          label: 'WWII',                 tags: ['WWII'] },
+  { id: 'vietnam',       label: 'Vietnam War',          tags: ['Vietnam War'] },
+  { id: 'iraq',          label: 'Iraq & Afghanistan',   tags: ['Iraq & Afghanistan'] },
+  { id: 'clinicians',    label: 'For Clinicians',       tags: ['For Clinicians'] },
+  { id: 'policy',        label: 'Public Policy',        tags: ['Public Policy'] },
+];
+
+let selectedRole = null;
+let selectedInterests = [];
+let activeCategory = 'all';
+let visitorNote = '';
+
+function selectRole(card) {
+  document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  selectedRole = card.dataset.role;
+  document.getElementById('role-next-btn').classList.add('visible');
+}
+
+function goToInterests() {
+  document.getElementById('role-screen').style.display = 'none';
+  const ws = document.getElementById('welcome');
+  ws.style.display = 'flex';
+  ws.classList.add('fade-in');
+  const title = document.getElementById('interest-title');
+  if (selectedRole === 'veteran') title.textContent = 'What would be most helpful?';
+  else if (selectedRole === 'self') title.textContent = 'What are you working through?';
+  else if (selectedRole === 'clinician') title.textContent = 'What are you working on?';
+  window.scrollTo(0,0);
+}
+
+function goBackToRole() {
+  document.getElementById('welcome').style.display = 'none';
+  const rs = document.getElementById('role-screen');
+  rs.style.display = 'flex';
+  rs.classList.add('fade-in');
+  window.scrollTo(0,0);
+}
+
+function browseAll() {
+  selectedInterests = ['browse'];
+  visitorNote = '';
+  document.getElementById('role-screen').style.display = 'none';
+  document.getElementById('welcome').style.display = 'none';
+  const bs = document.getElementById('books-screen');
+  bs.style.display = 'block';
+  bs.classList.add('fade-in');
+  buildIntro();
+  buildTabs();
+  renderBooks('all');
+  window.scrollTo(0,0);
+}
+
+function showBooks() {
+  selectedInterests = Array.from(document.querySelectorAll('.interest-btn.selected')).map(b => b.dataset.interest);
+  visitorNote = document.getElementById('visitor-note').value;
+  if (selectedInterests.length === 0) selectedInterests = ['browse'];
+
+  document.getElementById('welcome').style.display = 'none';
+  document.getElementById('role-screen').style.display = 'none';
+  const bs = document.getElementById('books-screen');
+  bs.style.display = 'block';
+  bs.classList.add('fade-in');
+
+  buildIntro();
+  buildTabs();
+  renderBooks('all');
+  window.scrollTo(0,0);
+}
+
+function showWelcome() {
+  document.getElementById('books-screen').style.display = 'none';
+  document.getElementById('welcome').style.display = 'none';
+  const rs = document.getElementById('role-screen');
+  rs.style.display = 'flex';
+  rs.classList.add('fade-in');
+  // Reset selections
+  document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
+  document.querySelectorAll('.interest-btn').forEach(b => b.classList.remove('selected'));
+  document.getElementById('role-next-btn').classList.remove('visible');
+  selectedRole = null;
+  selectedInterests = [];
+  window.scrollTo(0,0);
+}
+
+function buildIntro() {
+  const labels = {
+    family: 'families and partners',
+    clinician: 'clinicians and therapists',
+    ptsd: 'understanding PTSD and trauma',
+    bodywork: 'mind-body healing practices',
+    grief: 'grief and loss',
+    moral: 'moral injury and spirituality',
+    vietnam: 'Vietnam veterans',
+    iraq: 'Iraq and Afghanistan veterans',
+    women_vets: 'women veterans',
+    women_stories: "women's stories and perspectives",
+    suicide: 'suicide and suicide loss',
+    photo: 'war photography',
+    browse: 'browsing the full collection'
+  };
+
+  const rolePhrase = selectedRole === 'veteran'
+    ? 'supporting a veteran in your life'
+    : selectedRole === 'self'
+    ? 'your own healing journey'
+    : selectedRole === 'clinician'
+    ? 'clinical and therapeutic work with veterans and survivors'
+    : null;
+
+  const chosen = selectedInterests.filter(i => i !== 'browse').map(i => labels[i] || i);
+  let intro = '';
+
+  if (selectedInterests.includes('browse') || chosen.length === 0) {
+    intro = rolePhrase
+      ? `Here is the full collection — curated with ${rolePhrase} in mind. Browse by category below, or search by title or author.`
+      : 'Here is the full curated collection. Use the categories below to explore, or search by title or author.';
+  } else if (chosen.length === 1) {
+    intro = rolePhrase
+      ? `With ${rolePhrase} in mind, here are books relating to ${chosen[0]}.`
+      : `Here are books relating to ${chosen[0]}.`;
+  } else {
+    const last = chosen.pop();
+    intro = rolePhrase
+      ? `With ${rolePhrase} in mind, here are books relating to ${chosen.join(', ')}, and ${last}.`
+      : `Here are books relating to ${chosen.join(', ')}, and ${last}.`;
+  }
+
+  if (visitorNote) {
+    intro += ` You mentioned: “${visitorNote}” — feel free to ask the assistant below for more specific guidance.`;
+  }
+
+  document.getElementById('screen-intro').textContent = intro;
+}
+
+function buildTabs() {
+  const container = document.getElementById('cat-tabs');
+  container.innerHTML = '';
+  
+  CAT_CONFIG.forEach(cat => {
+    const count = cat.id === 'all' ? ALL_BOOKS.length : booksForCat(cat).length;
+    if (count === 0) return;
+    
+    const btn = document.createElement('button');
+    btn.className = 'cat-tab' + (cat.id === 'all' ? ' active' : '');
+    btn.dataset.catId = cat.id;
+    btn.innerHTML = `${cat.label}<span class="count">(${count})</span>`;
+    btn.onclick = () => {
+      document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      activeCategory = cat.id;
+      document.getElementById('search-input').value = '';
+      renderBooks(cat.id);
+    };
+    container.appendChild(btn);
+  });
+}
+
+function booksForCat(cat) {
+  if (cat.id === 'all') return ALL_BOOKS;
+  return ALL_BOOKS.filter(b => b.tags.some(t => cat.tags.includes(t)));
+}
+
+function renderBooks(catId, searchQuery) {
+  const cat = CAT_CONFIG.find(c => c.id === catId) || CAT_CONFIG[0];
+  let books = booksForCat(cat);
+  
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    books = books.filter(b => b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q));
+  }
+  
+  // Sort alphabetically by title
+  books = [...books].sort((a, b) => a.title.localeCompare(b.title));
+  
+  document.getElementById('cat-title').textContent = cat.label || 'All Books';
+  document.getElementById('books-count').textContent = `${books.length} title${books.length !== 1 ? 's' : ''}`;
+  
+  const grid = document.getElementById('book-grid');
+  grid.innerHTML = '';
+  
+  books.forEach(book => {
+    const card = createCard(book);
+    grid.appendChild(card);
+  });
+}
+
+function filterBooks() {
+  const q = document.getElementById('search-input').value.trim();
+  renderBooks(activeCategory, q);
+}
+
+function createCard(book) {
+  const hasLink = book.link && book.link.length > 0;
+  const el = document.createElement(hasLink ? 'a' : 'div');
+  el.className = 'book-card';
+  if (hasLink) {
+    el.href = book.link;
+    el.target = '_blank';
+    el.rel = 'noopener noreferrer';
+  }
+  
+  // Cover image area
+  const coverDiv = document.createElement('div');
+  coverDiv.className = 'book-cover shimmer';
+  
+  const placeholder = document.createElement('div');
+  placeholder.className = 'cover-placeholder';
+  placeholder.innerHTML = `
+    <div class="cover-ph-title">${escHtml(book.title)}</div>
+    <div class="cover-ph-divider"></div>
+    <div class="cover-ph-author">${escHtml(book.author)}</div>
+  `;
+  coverDiv.appendChild(placeholder);
+  
+  // Lazy-load cover from Google Books
+  const img = document.createElement('img');
+  img.alt = book.title;
+  const searchQ = encodeURIComponent(book.title + ' ' + book.author);
+  img.src = `https://www.googleapis.com/books/v1/volumes?q=${searchQ}&maxResults=1&fields=items(volumeInfo/imageLinks)`;
+  // Use actual image fetch
+  fetchCover(book.title, book.author, img, coverDiv, placeholder);
+  img.style.display = 'none';
+  coverDiv.appendChild(img);
+  
+  // Info
+  const info = document.createElement('div');
+  info.className = 'book-info';
+  
+  const title = document.createElement('div');
+  title.className = 'book-title';
+  title.textContent = book.title;
+  
+  const author = document.createElement('div');
+  author.className = 'book-author';
+  author.textContent = book.author;
+  
+  info.appendChild(title);
+  info.appendChild(author);
+  
+  if (book.tags.length > 0) {
+    const tags = document.createElement('div');
+    tags.className = 'book-tags';
+    book.tags.slice(0, 3).forEach(tag => {
+      const t = document.createElement('span');
+      t.className = 'book-tag';
+      t.textContent = tag;
+      tags.appendChild(t);
+    });
+    info.appendChild(tags);
+  }
+  
+  if (!hasLink) {
+    const note = document.createElement('div');
+    note.className = 'no-link-note';
+    note.textContent = 'Link coming soon';
+    info.appendChild(note);
+  }
+  
+  el.appendChild(coverDiv);
+  el.appendChild(info);
+  return el;
+}
+
+const coverCache = {};
+
+async function fetchCover(title, author, img, coverDiv, placeholder) {
+  const key = title + author;
+  if (coverCache[key] === null) return;
+  if (coverCache[key]) {
+    applyImage(img, coverDiv, placeholder, coverCache[key]);
+    return;
+  }
+  
+  try {
+    const q = encodeURIComponent(title + ' ' + author);
+    const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${q}&maxResults=1&fields=items(volumeInfo/imageLinks)`);
+    const data = await res.json();
+    const url = data?.items?.[0]?.volumeInfo?.imageLinks?.thumbnail;
+    
+    if (url) {
+      const betterUrl = url.replace('zoom=1','zoom=2').replace('http:','https:');
+      coverCache[key] = betterUrl;
+      applyImage(img, coverDiv, placeholder, betterUrl);
+    } else {
+      coverCache[key] = null;
+      coverDiv.classList.remove('shimmer');
+    }
+  } catch(e) {
+    coverDiv.classList.remove('shimmer');
+  }
+}
+
+function applyImage(img, coverDiv, placeholder, url) {
+  img.src = url;
+  img.style.display = 'block';
+  img.onload = () => {
+    img.classList.add('loaded');
+    placeholder.style.display = 'none';
+    coverDiv.classList.remove('shimmer');
+  };
+  img.onerror = () => {
+    img.style.display = 'none';
+    coverDiv.classList.remove('shimmer');
+  };
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// Interest button selection
+document.querySelectorAll('.interest-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('selected');
+  });
+});
+
+// ── AI ASSISTANT ──
+async function askAI() {
+  const q = document.getElementById('ai-question').value.trim();
+  if (!q) return;
+  
+  const btn = document.getElementById('ai-btn');
+  const resp = document.getElementById('ai-response');
+  btn.disabled = true;
+  btn.textContent = '…';
+  resp.style.display = 'block';
+  resp.textContent = 'Thinking…';
+  
+  const catLabel = CAT_CONFIG.find(c => c.id === activeCategory)?.label || 'General';
+  const bookList = ALL_BOOKS.slice(0,40).map(b => `"${b.title}" by ${b.author}`).join('; ');
+  
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: `You are a warm, knowledgeable guide on the Healing Combat Trauma book recommendation website. The site helps veterans, their families, clinicians, and others find books about combat trauma, PTSD, healing, and recovery. You know the site's curated collection well. Give concise, helpful, compassionate guidance. Never recommend books not on this site. If asked about a specific book, help the visitor understand if it fits their needs. Keep responses to 2-4 sentences. Sample books in the collection: ${bookList}`,
+        messages: [{ role: 'user', content: `The visitor is currently browsing the "${catLabel}" category and asks: ${q}` }]
+      })
+    });
+    
+    const data = await res.json();
+    resp.textContent = data.content?.[0]?.text || 'I wasn\'t able to answer that — try rephrasing your question.';
+  } catch(e) {
+    resp.textContent = 'The assistant is temporarily unavailable. Please browse the categories below.';
+  }
+  
+  btn.disabled = false;
+  btn.textContent = 'Ask';
+}
+</script>
+</body>
+</html>
