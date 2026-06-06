@@ -118,6 +118,8 @@ header { background:#0e0b14; position:sticky; top:0; z-index:100; border-bottom:
 .cat-tab { padding:14px 20px; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); cursor:pointer; border-bottom:2px solid transparent; white-space:nowrap; transition:all 0.2s; background:none; border-top:none; border-left:none; border-right:none; font-family:'Jost',sans-serif; }
 .cat-tab:hover { color:var(--sage); }
 .cat-tab.active { color:var(--sage-deep); border-bottom-color:var(--sage-deep); font-weight:500; }
+.cat-tab.required-cat { color:#7C9080; font-weight:600; }
+.cat-tab.required-cat.active { color:var(--sage-deep); border-bottom-color:#7C9080; }
 
 /* Book grid */
 .books-header { max-width:1200px; margin:0 auto; padding:32px 24px 20px; display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:12px; }
@@ -336,11 +338,56 @@ function setHero(idx) {
 
 // ── DATA ──
 const CATEGORIES = [
-  'All','PTSD','Families & Relationships','Moral Injury','Neuroscience',
-  'Bodywork & Somatic','Spirituality','Suicide & Loss','Clinician's Guide',
-  'Vietnam War','Iraq & Afghanistan','Self-Help','Writing Therapies',
-  'Memoirs','Mindfulness & Meditation','Yoga & Movement','Audio'
+  'All',
+  '1st Person Narratives – Civil War',
+  '1st Person Narratives – Gulf War',
+  '1st Person Narratives – Iraq and Afghanistan',
+  '1st Person Narratives – Korean War',
+  '1st Person Narratives – Vietnam',
+  '1st Person Narratives – WWI',
+  '1st Person Narratives – WWII',
+  'Books of Therapeutic Interest',
+  "Clinicians' Corner",
+  'Documentaries & Films',
+  'Grief & Loss',
+  'Healing-Oriented Multimedia',
+  'Highly Rated (4.5 Stars and Above!)',
+  'Military Sexual Trauma ("MST")',
+  'Photojournalists on War',
+  'Post-Traumatic Stress Disorder ("PTSD")',
+  'Resources for Families',
+  'Spouses, Partners & Families',
+  "Veterans' Memoirs",
+  'War Poetry',
+  'Women Veterans in Their Own Words',
+  'Bodywork & Somatic','Mindfulness & Meditation','Moral Injury',
+  'Neuroscience','Self-Help','Spirituality','Writing Therapies','Yoga & Movement','Audio'
 ];
+
+// Required categories to highlight in the nav
+const REQUIRED_CATS = new Set([
+  '1st Person Narratives – Civil War',
+  '1st Person Narratives – Gulf War',
+  '1st Person Narratives – Iraq and Afghanistan',
+  '1st Person Narratives – Korean War',
+  '1st Person Narratives – Vietnam',
+  '1st Person Narratives – WWI',
+  '1st Person Narratives – WWII',
+  'Books of Therapeutic Interest',
+  "Clinicians' Corner",
+  'Documentaries & Films',
+  'Grief & Loss',
+  'Healing-Oriented Multimedia',
+  'Highly Rated (4.5 Stars and Above!)',
+  'Military Sexual Trauma ("MST")',
+  'Photojournalists on War',
+  'Post-Traumatic Stress Disorder ("PTSD")',
+  'Resources for Families',
+  'Spouses, Partners & Families',
+  "Veterans' Memoirs",
+  'War Poetry',
+  'Women Veterans in Their Own Words',
+]);
 
 const INTERESTS = [
   {label:'Understanding PTSD', cats:['PTSD','Neuroscience']},
@@ -486,6 +533,7 @@ function buildBooksScreen(availCats) {
     tab.className = 'cat-tab' + (cat === currentCat ? ' active' : '');
     tab.textContent = cat;
     tab.onclick = () => filterBooks(cat);
+    if (REQUIRED_CATS.has(cat)) tab.classList.add('required-cat');
     tabsEl.appendChild(tab);
   });
   filterBooks(currentCat);
