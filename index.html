@@ -86,8 +86,8 @@ header { background:#0e0b14; position:sticky; top:0; z-index:100; border-bottom:
 
 /* ── ROLE SCREEN ── */
 #role-screen { min-height:100vh; display:none; flex-direction:column; align-items:center; justify-content:center; padding:60px 24px 40px; background:linear-gradient(160deg, var(--sage-pale) 0%, #e4ede2 45%, var(--purple-pale) 100%); }
-.role-cards { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; max-width:700px; margin-bottom:28px; }
-.role-card { background:var(--white); border:2px solid var(--border); border-radius:16px; padding:32px 28px; width:280px; cursor:pointer; transition:all 0.25s ease; text-align:center; }
+.role-cards { display:flex; gap:20px; flex-wrap:nowrap; justify-content:center; max-width:900px; margin-bottom:28px; }
+.role-card { background:var(--white); border:2px solid var(--border); border-radius:16px; padding:28px 20px; width:220px; min-width:180px; cursor:pointer; transition:all 0.25s ease; text-align:center; }
 .role-card:hover { border-color:var(--sage); box-shadow:0 8px 28px rgba(74,94,73,.12); transform:translateY(-2px); }
 .role-card.selected { border-color:var(--sage-deep); background:#eef4ec; }
 .role-icon { font-size:2rem; margin-bottom:8px; }
@@ -153,11 +153,45 @@ header { background:#0e0b14; position:sticky; top:0; z-index:100; border-bottom:
 footer { background:#0e0b14; color:var(--sage-light); text-align:center; padding:28px 24px; font-size:0.72rem; letter-spacing:0.1em; border-top:2px solid var(--gold); margin-top:40px; }
 footer a { color:var(--gold); text-decoration:none; }
 
-@media(max-width:600px){
-  .books-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px;padding:0 12px;}
-  .hero-image-wrap{border-radius:10px;}
-  .hero-thumbs{gap:6px;}
-  .hero-thumb{width:48px;height:32px;}
+@media(max-width:700px){
+  /* Header */
+  .header-inner { gap:10px; padding:10px 14px; }
+  .header-title { font-size:1.2rem; }
+  .header-sub { font-size:0.6rem; letter-spacing:0.14em; }
+
+  /* Hero */
+  .hero-image-wrap { border-radius:10px; }
+  .hero-thumbs { gap:6px; }
+  .hero-thumb { width:48px; height:32px; }
+
+  /* Welcome screen */
+  #welcome { padding:32px 16px 32px; }
+  .welcome-title { font-size:1.8rem; }
+  .welcome-sub { font-size:0.85rem; }
+
+  /* Role cards — stack vertically on mobile */
+  .role-cards { flex-direction:column; align-items:center; flex-wrap:nowrap; gap:14px; width:100%; max-width:340px; }
+  .role-card { width:100%; min-width:unset; padding:20px 18px; }
+
+  /* Interest chips */
+  .interest-chip { font-size:0.78rem; padding:9px 16px; }
+
+  /* Books screen */
+  .books-header { padding:20px 14px 12px; flex-direction:column; align-items:flex-start; gap:10px; }
+  .books-grid { grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:12px; padding:0 12px; }
+
+  /* AI panel */
+  #ai-panel-wrap { padding:0 12px; }
+  .ai-input-row { flex-direction:column; gap:8px; }
+  .ai-btn { width:100%; }
+
+  /* Footer */
+  footer { padding:20px 16px; font-size:0.68rem; }
+}
+
+@media(max-width:400px){
+  .books-grid { grid-template-columns:repeat(2, 1fr); }
+  .header-title { font-size:1rem; }
 }
 </style>
 </head>
@@ -213,7 +247,7 @@ footer a { color:var(--gold); text-decoration:none; }
     </div>
   </div>
   <h1 class="welcome-title">Find Your Path to <em>Healing</em></h1>
-  <p class="welcome-sub">A curated library of books on combat trauma, PTSD, resilience, and recovery — for veterans, families, and those who support them.</p>
+  <p class="welcome-sub">Hundreds of curated resources — books, workbooks, videos, DVDs, and more — on combat trauma, PTSD, resilience, and recovery. For veterans, families, and those who support them.</p>
 
   <div class="role-cards" style="margin-bottom:24px;">
     <div class="role-card" onclick="selectRole('veteran')">
