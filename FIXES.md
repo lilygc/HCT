@@ -19,6 +19,31 @@ Items to apply in a future session. Mark `[done]` when complete rather than dele
 - [ ] Add Google Analytics
 - [ ] Create favicon from the water lily / purple heart emblem
 
+## Domain Setup
+Primary domain: **HealingCombatTrauma.com** (GoDaddy) — canonical destination for all traffic.
+All others redirect to .com.
+
+### HealingCombatTrauma.com → GitHub Pages (GoDaddy)
+- [ ] In GoDaddy DNS, add CNAME record: name `www`, value `lilygc.github.io`
+- [ ] In GoDaddy DNS, add four A records (root domain) pointing to GitHub's IPs:
+  - `185.199.108.153`
+  - `185.199.109.153`
+  - `185.199.110.153`
+  - `185.199.111.153`
+- [ ] In GitHub repo: Settings → Pages → Custom domain → enter `healingcombattrauma.com`
+- [ ] Confirm HTTPS certificate auto-provisions (may take a few minutes)
+
+### HealingCombatTrauma.org → redirect to .com (Hover)
+- [ ] In Hover dashboard, use Domain Forwarding to redirect to `https://healingcombattrauma.com`
+
+### PTSD domains (e.g. HealingPTSD.com / .org)
+- [ ] Redirect all to `https://healingcombattrauma.com` for now
+- [ ] Revisit once site is live — could eventually point to the PTSD Resources category page (good for SEO)
+
+### WordPress
+- [ ] Delete/cancel WordPress site — no longer needed
+- [ ] If on WordPress.com, let plan lapse or delete under account settings
+
 ## Known Bugs
 - [ ] (Add items here as you notice them)
 
