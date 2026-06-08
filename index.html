@@ -554,6 +554,43 @@ footer {
   .hero { height: 300px; }
   .all-books-tile { flex-wrap: wrap; }
 }
+
+/* ── ERA SUB-NAVIGATION ── */
+#screen-subcats { padding: 20px; }
+.subcat-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 20px;
+  max-width: 900px;
+}
+.subcat-tile {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 22px;
+  cursor: pointer;
+  min-width: 160px;
+  flex: 1;
+  text-align: center;
+  transition: border-color .2s, box-shadow .2s, transform .15s;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+.subcat-tile:hover {
+  border-color: var(--sage);
+  box-shadow: 0 5px 20px rgba(79,99,82,.18);
+  transform: translateY(-3px);
+}
+.subcat-tile h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--sage-dk);
+  margin-bottom: 6px;
+}
+.subcat-tile .count {
+  font-size: .8rem;
+  color: var(--text-lt);
+}
 </style>
 </head>
 <body>
@@ -647,6 +684,14 @@ footer {
 </div>
 
 <!-- ALL BOOKS SCREEN -->
+
+<div id="screen-subcats" class="screen">
+  <button class="back-btn" onclick="showScreen('categories')">← Back to Categories</button>
+  <h1 class="page-title" id="subcats-title">1st Person Narratives</h1>
+  <p class="page-sub" id="subcats-sub"></p>
+  <div class="subcat-grid" id="subcat-grid"></div>
+</div>
+
 <div id="screen-allbooks" class="screen">
   <button class="back-btn" onclick="showScreen('categories')">← Back to Categories</button>
   <h1 class="page-title">All Books &amp; Resources</h1>
@@ -1166,15 +1211,28 @@ function buildCatGrid() {
     const tile = document.createElement('div');
     tile.className = 'cat-tile' + (books.length === 0 ? ' empty' : '');
     tile.innerHTML = `<h4>${cat.name}</h4><div class="count">${books.length} resource${books.length!==1?'s':''}</div>`;
-    if (books.length > 0) tile.onclick = () => showCatBooks(cat.name, books);
+    if (books.length > 0) {
+      if (cat.name === '1st Person Narratives') {
+        tile.onclick = () => showEraMenu();
+      } else {
+        tile.onclick = () => showCatBooks(cat.name, books);
+      }
+    }
     grid.appendChild(tile);
   });
 }
 
 // ── show books in a category ──
-function showCatBooks(name, books) {
+let booksOriginScreen = 'categories';
+function showCatBooks(name, books, origin) {
+  booksOriginScreen = origin || 'categories';
   document.getElementById('books-title').textContent = name;
   document.getElementById('books-sub').textContent = books.length + ' resource' + (books.length!==1?'s':'');
+  // Update back button destination
+  document.querySelectorAll('#screen-books .back-btn').forEach(b => {
+    b.onclick = () => showScreen(booksOriginScreen);
+    b.textContent = booksOriginScreen === 'subcats' ? '← Back to Eras' : '← Back to Categories';
+  });
   const grid = document.getElementById('book-grid');
   grid.innerHTML = '';
   const sorted = [...books].sort((a,b) => a.title.localeCompare(b.title));
@@ -1263,6 +1321,37 @@ function showAllBooks(sort) {
 window.addEventListener('scroll', () => {
   document.getElementById('back-top').classList.toggle('show', window.scrollY > 400);
 });
+
+// ── 1st Person Narratives era sub-menu ──
+const ERA_MAP = [
+  {label:'Civil War',         subcat:'Civil War'},
+  {label:'World War I',       subcat:'WWI'},
+  {label:'World War II',      subcat:'WWII'},
+  {label:'Korean War',        subcat:'Korean War'},
+  {label:'Vietnam War',       subcat:'Vietnam War'},
+  {label:'Gulf War',          subcat:'Gulf War'},
+  {label:'Iraq & Afghanistan',subcat:'Iraq & Afghanistan'},
+];
+
+function showEraMenu() {
+  const grid = document.getElementById('subcat-grid');
+  grid.innerHTML = '';
+  let total = 0;
+  ERA_MAP.forEach(era => {
+    const books = BOOKS.filter(b => b.subcat === era.subcat);
+    if (books.length === 0) return;
+    total += books.length;
+    const tile = document.createElement('div');
+    tile.className = 'subcat-tile';
+    tile.innerHTML = '<h4>' + era.label + '</h4><div class="count">' + books.length + ' resource' + (books.length!==1?'s':'') + '</div>';
+    tile.onclick = () => showCatBooks(era.label, books, 'subcats');
+    grid.appendChild(tile);
+  });
+  document.getElementById('subcats-title').textContent = '1st Person Narratives';
+  document.getElementById('subcats-sub').textContent = total + ' resources across ' + ERA_MAP.filter(e => BOOKS.some(b => b.subcat === e.subcat)).length + ' eras';
+  showScreen('subcats');
+}
+
 </script>
 </body>
 </html>
