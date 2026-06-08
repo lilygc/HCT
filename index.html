@@ -636,7 +636,7 @@ footer {
   <div class="all-books-tile" onclick="showScreen('allbooks')">
     <div class="tile-icon">📚</div>
     <div class="tile-text">
-      <h3>All Books &amp; Multimedia</h3>
+      <h3>All Books &amp; Resources</h3>
       <p>Browse the complete collection — sort by title or by author.</p>
     </div>
     <div class="tile-count" id="total-count-tile"></div>
@@ -649,7 +649,7 @@ footer {
 <!-- ALL BOOKS SCREEN -->
 <div id="screen-allbooks" class="screen">
   <button class="back-btn" onclick="showScreen('categories')">← Back to Categories</button>
-  <h1 class="page-title">All Books &amp; Multimedia</h1>
+  <h1 class="page-title">All Books &amp; Resources</h1>
   <div class="sort-options">
     <button class="sort-btn active" id="sort-title-btn" onclick="showAllBooks('title')">Sort by Title</button>
     <button class="sort-btn" id="sort-author-btn" onclick="showAllBooks('author')">Sort by Author</button>
@@ -916,29 +916,6 @@ const BOOKS = [
   {title:'War/Photography: Images of Armed Conflict and Its Aftermath (Museum of Fine Arts, Houston)',author:'Anne Wilkes Tucker',asin:'0300177380',link:'https://amzn.to/4tXQUpc',type:'Book',subcat:'Photojournalism',cover:'https://images-na.ssl-images-amazon.com/images/P/0300177380.01._SX180_.jpg'},
   {title:'Robert Capa: Photographs (Aperture Monograph)',author:'Richard Whelan',asin:'0893816752',link:'https://amzn.to/4dhcyOf',type:'Book',subcat:'Photojournalism',cover:'https://images-na.ssl-images-amazon.com/images/P/0893816752.01._SX180_.jpg'},
   {title:'Robert Capa: The Definitive Collection',author:'Richard Whelan',asin:'071484067X',link:'https://amzn.to/48JDmW2',type:'Book',subcat:'Photojournalism',cover:'https://images-na.ssl-images-amazon.com/images/P/071484067X.01._SX180_.jpg'}
-];
-const CATEGORIES = [
-  {name:"Veterans' Memoirs",subcats:["Memoirs", "Veterans", "Histories", "Autobiographical Essays"]},
-  {name:"PTSD Resources",subcats:["PTSD", "PTSD - General", "PTSD Classics", "Neurobiology", "Neuropsychology", "Neuroscience"]},
-  {name:"Clinicians' Corner",subcats:["Clinician's Corner", "Clinician's Guide", "Clinicians' Corner", "Therapeutic", "Therapies", "Traumatic Incident Reduction"]},
-  {name:"Grief & Loss",subcats:["Grief & Loss", "Day-by-Day Reflections", "Perseverance", "Recovery"]},
-  {name:"Moral Injury",subcats:["Moral Injury"]},
-  {name:"Spirituality",subcats:["Spirituality", "Religious", "Eastern Philosophies"]},
-  {name:"Mind-Body & Healing",subcats:["Bodywork Therapies", "Mindfulness", "Meditation", "Relaxation", "Guided Meditations", "Equine Therapy", "Animals", "Writing Therapies", "Self-Help", "Healing, Generally", "Personal Recovery", "Stress Management", "Jungian"]},
-  {name:"Resources for Families",subcats:["Families and Relationships", "Relationships"]},
-  {name:"War Poetry",subcats:["Poetry", "Anthologies"]},
-  {name:"Suicide & Loss",subcats:["Suicide"]},
-  {name:"Photojournalists on War",subcats:["Photojournalism"]},
-  {name:"Public Policy",subcats:["Public Policy", "Reference", "Journalism"]},
-  {name:"Substance Abuse",subcats:["Substance Abuse"]},
-  {name:"Documentaries & Films",subcats:[]},
-  {name:"Healing Multimedia",subcats:[]},
-  {name:"1st Person Narratives",subcats:["Civil War", "Vietnam War", "Iraq & Afghanistan", "Korean War", "Gulf War", "WWI", "WWII", "Memoirs", "Autobiographical Essays"]},
-  {name:"Women Veterans",subcats:["Women Veterans"]},
-  {name:"Military Sexual Trauma",subcats:["MST","Military Sexual Trauma"]},
-  {name:"Good Sleep",subcats:["Good Sleep","A Good Night's Sleep"]},
-  {name:"Highly Rated",special:"highly_rated"},
-  {name:"Recommended by VA",special:"va_recommended"}
   {title:'Hospital Sketches',author:'Louisa May Alcott',asin:'0918222788',link:'https://www.amazon.com/dp/0918222788',type:'Book',subcat:'Civil War',cover:'https://images-na.ssl-images-amazon.com/images/P/0918222788.01._SX180_.jpg'},
   {title:'Louisa May Alcott\'s Civil War',author:'Louisa May Alcott',asin:'1889020109',link:'https://www.amazon.com/dp/1889020109',type:'Book',subcat:'Civil War',cover:'https://images-na.ssl-images-amazon.com/images/P/1889020109.01._SX180_.jpg'},
   {title:'Civil War Stories',author:'Ambrose Bierce',asin:'0486280381',link:'https://www.amazon.com/dp/0486280381',type:'Book',subcat:'Civil War',cover:'https://images-na.ssl-images-amazon.com/images/P/0486280381.01._SX180_.jpg'},
@@ -1128,6 +1105,29 @@ const CATEGORIES = [
   {title:'My Men Are My Heroes: The Brad Kasal Story',author:'Nathaniel Helms',asin:'1612511368',link:'https://www.amazon.com/dp/1612511368',type:'Book',subcat:'Iraq & Afghanistan',cover:'https://images-na.ssl-images-amazon.com/images/P/1612511368.01._SX180_.jpg',highly_rated:true},
   {title:'Post-Traumatic Stress Disorder Sourcebook',author:'Glenn R. Schiraldi',asin:'0737302658',link:'https://www.amazon.com/dp/0737302658',type:'Book',subcat:'Recovery',cover:'https://images-na.ssl-images-amazon.com/images/P/0737302658.01._SX180_.jpg',va_recommended:true},
 ];
+const CATEGORIES = [
+  {name:"Veterans' Memoirs",subcats:["Memoirs", "Veterans", "Histories", "Autobiographical Essays"]},
+  {name:"PTSD Resources",subcats:["PTSD", "PTSD - General", "PTSD Classics", "Neurobiology", "Neuropsychology", "Neuroscience"]},
+  {name:"Clinicians' Corner",subcats:["Clinician's Corner", "Clinician's Guide", "Clinicians' Corner", "Therapeutic", "Therapies", "Traumatic Incident Reduction"]},
+  {name:"Grief & Loss",subcats:["Grief & Loss", "Day-by-Day Reflections", "Perseverance", "Recovery"]},
+  {name:"Moral Injury",subcats:["Moral Injury"]},
+  {name:"Spirituality",subcats:["Spirituality", "Religious", "Eastern Philosophies"]},
+  {name:"Mind-Body & Healing",subcats:["Bodywork Therapies", "Mindfulness", "Meditation", "Relaxation", "Guided Meditations", "Equine Therapy", "Animals", "Writing Therapies", "Self-Help", "Healing, Generally", "Personal Recovery", "Stress Management", "Jungian"]},
+  {name:"Resources for Families",subcats:["Families and Relationships", "Relationships"]},
+  {name:"War Poetry",subcats:["Poetry", "Anthologies"]},
+  {name:"Suicide & Loss",subcats:["Suicide"]},
+  {name:"Photojournalists on War",subcats:["Photojournalism"]},
+  {name:"Public Policy",subcats:["Public Policy", "Reference", "Journalism"]},
+  {name:"Substance Abuse",subcats:["Substance Abuse"]},
+  {name:"Documentaries & Films",subcats:[]},
+  {name:"Healing Multimedia",subcats:[]},
+  {name:"1st Person Narratives",subcats:["Civil War", "Vietnam War", "Iraq & Afghanistan", "Korean War", "Gulf War", "WWI", "WWII", "Memoirs", "Autobiographical Essays"]},
+  {name:"Women Veterans",subcats:["Women Veterans"]},
+  {name:"Military Sexual Trauma",subcats:["MST","Military Sexual Trauma"]},
+  {name:"Good Sleep",subcats:["Good Sleep","A Good Night's Sleep"]},
+  {name:"Highly Rated",special:"highly_rated"},
+  {name:"Recommended by VA",special:"va_recommended"}
+];
 
 // ── hero slideshow ──
 let heroIdx = 0;
@@ -1263,15 +1263,6 @@ function showAllBooks(sort) {
 window.addEventListener('scroll', () => {
   document.getElementById('back-top').classList.toggle('show', window.scrollY > 400);
 });
-
-// ── dynamic inventory count ──
-(function() {
-  var n = BOOKS.length;
-  var hero = document.getElementById('total-count-hero');
-  var tile = document.getElementById('total-count-tile');
-  if (hero) hero.textContent = n;
-  if (tile) tile.textContent = n;
-})();
 </script>
 </body>
 </html>
