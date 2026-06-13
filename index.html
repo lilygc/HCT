@@ -80,8 +80,9 @@ body {
 .nav-btn:hover { background: rgba(255,255,255,.25); }
 
 /* ── SCREENS ── */
-.screen { display: none; }
-.screen.active { display: block; }
+.screen { display: none !important; }
+.screen.active { display: block !important; }
+#screen-welcome.active { display: flex !important; }
 
 /* ── HERO / WELCOME ── */
 #screen-welcome {
@@ -599,6 +600,17 @@ footer {
 }
 
 /* ── ROLE VIEW SCREENS ── */
+.role-section-rule {
+  border: none;
+  border-top: 3px solid var(--sage);
+  margin: 24px 0 28px 0;
+  opacity: 0.6;
+}
+.role-cat-tile.pinned {
+  border-color: var(--sage);
+  background: linear-gradient(135deg, var(--card-bg) 0%, #f0f4f1 100%);
+}
+
 .role-view-header {
   margin-bottom: 32px;
 }
@@ -759,20 +771,78 @@ footer {
     <p>Clinical resources, evidence-based tools, and VA-recognized reading — curated for practitioners.</p>
   </div>
   <div class="role-cat-grid">
-    <div class="role-cat-tile" onclick="showCatBooks('Clinicians Corner', booksForCat(CATEGORIES.find(c=>c.name==='Clinicians Corner')))">
+    <div class="role-cat-tile pinned" onclick="showCatBooks('Clinicians Corner', booksForCat(CATEGORIES.find(c=>c.name==='Clinicians Corner')))">
       <h4>Clinicians Corner</h4>
       <p>Evidence-based clinical texts, treatment guides, and professional resources.</p>
-      <div class="tile-count-sm" id="role-count-clinicians"></div>
+      <div class="tile-count-sm" id="role-count-clinicians-corner-clin"></div>
     </div>
-    <div class="role-cat-tile" onclick="showCatBooks('VA Recommended', booksForCat(CATEGORIES.find(c=>c.name==='VA Recommended')))">
+    <div class="role-cat-tile pinned" onclick="showCatBooks('VA Recommended', booksForCat(CATEGORIES.find(c=>c.name==='VA Recommended')))">
       <h4>VA Recommended</h4>
       <p>Books recognized and recommended by the Department of Veterans Affairs.</p>
-      <div class="tile-count-sm" id="role-count-va"></div>
+      <div class="tile-count-sm" id="role-count-va-recommended-clin"></div>
     </div>
-    <div class="role-cat-tile" onclick="showCatBooks('Workbooks', booksForCat(CATEGORIES.find(c=>c.name==='Workbooks')))">
+    <div class="role-cat-tile pinned" onclick="showCatBooks('Workbooks', booksForCat(CATEGORIES.find(c=>c.name==='Workbooks')))">
       <h4>Workbooks</h4>
-      <p>Structured, skills-based workbooks for use in clinical and self-directed settings.</p>
-      <div class="tile-count-sm" id="role-count-workbooks"></div>
+      <p>Structured, skills-based workbooks for clinical and self-directed settings.</p>
+      <div class="tile-count-sm" id="role-count-workbooks-clin"></div>
+    </div>
+  </div>
+  <hr class="role-section-rule">
+  <div class="role-cat-grid">
+    <div class="role-cat-tile" onclick="showCatBooks('Award-Winning', booksForCat(CATEGORIES.find(c=>c.name==='Award-Winning')))">
+      <h4>Award-Winning</h4>
+      <p>Books recognized by the field for their reach, quality, or impact.</p>
+      <div class="tile-count-sm" id="role-count-award-winning-clin"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Children\'s Books', booksForCat(CATEGORIES.find(c=>c.name==='Children\'s Books')))">
+      <h4>Children's Books</h4>
+      <p>For the youngest members of military families — because children are affected too.</p>
+      <div class="tile-count-sm" id="role-count-childrens-books-clin"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Documentaries & Films', booksForCat(CATEGORIES.find(c=>c.name==='Documentaries & Films')))">
+      <h4>Documentaries &amp; Films</h4>
+      <p>Films that bear witness — for when you need to see it, not just read it.</p>
+      <div class="tile-count-sm" id="role-count-documentaries-and-films-clin"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Grief & Loss', booksForCat(CATEGORIES.find(c=>c.name==='Grief & Loss')))">
+      <h4>Grief &amp; Loss</h4>
+      <p>For the losses that don't always have names — and the ones that do.</p>
+      <div class="tile-count-sm" id="role-count-grief-and-loss-clin"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Military Sexual Trauma', booksForCat(CATEGORIES.find(c=>c.name==='Military Sexual Trauma')))">
+      <h4>Military Sexual Trauma</h4>
+      <p>Resources addressing MST — an underserved population with distinct healing needs.</p>
+      <div class="tile-count-sm" id="role-count-military-sexual-trauma-clin"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Mind-Body Skills', booksForCat(CATEGORIES.find(c=>c.name==='Mind-Body Skills')))">
+      <h4>Mind-Body Skills</h4>
+      <p>Somatic approaches, movement, and body-based practices for healing trauma from the inside out.</p>
+      <div class="tile-count-sm" id="role-count-mind-body-skills-clin"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Moral Injury', booksForCat(CATEGORIES.find(c=>c.name==='Moral Injury')))">
+      <h4>Moral Injury</h4>
+      <p>For those carrying the weight of what was witnessed, done, or left undone.</p>
+      <div class="tile-count-sm" id="role-count-moral-injury-clin"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('PTSD Classics', booksForCat(CATEGORIES.find(c=>c.name==='PTSD Classics')))">
+      <h4>PTSD Classics</h4>
+      <p>The foundational books that defined the field — essential reading for anyone navigating trauma.</p>
+      <div class="tile-count-sm" id="role-count-ptsd-classics-clin"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Spirituality', booksForCat(CATEGORIES.find(c=>c.name==='Spirituality')))">
+      <h4>Spirituality</h4>
+      <p>For those finding meaning, faith, or practice as part of their healing path.</p>
+      <div class="tile-count-sm" id="role-count-spirituality-clin"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Suicide & Loss', booksForCat(CATEGORIES.find(c=>c.name==='Suicide & Loss')))">
+      <h4>Suicide &amp; Loss</h4>
+      <p>Resources for survivors of loss, and for those working with those at risk.</p>
+      <div class="tile-count-sm" id="role-count-suicide-and-loss-clin"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Women Veterans', booksForCat(CATEGORIES.find(c=>c.name==='Women Veterans')))">
+      <h4>Women Veterans</h4>
+      <p>Resources centered on the distinct experiences of women who served.</p>
+      <div class="tile-count-sm" id="role-count-women-veterans-clin"></div>
     </div>
   </div>
   <div class="role-escape-hatch">
@@ -788,45 +858,125 @@ footer {
     <p>Resources selected for veterans seeking to understand, process, and move forward.</p>
   </div>
   <div class="role-cat-grid">
-    <div class="role-cat-tile" onclick="showCatBooks('PTSD Classics', booksForCat(CATEGORIES.find(c=>c.name==='PTSD Classics')))">
-      <h4>PTSD Classics</h4>
-      <p>The foundational books that defined the field — essential reading for anyone navigating trauma.</p>
-      <div class="tile-count-sm" id="role-count-ptsd-classics"></div>
+    <div class="role-cat-tile" onclick="showCatBooks('Anthologies', booksForCat(CATEGORIES.find(c=>c.name==='Anthologies')))">
+      <h4>Anthologies</h4>
+      <p>Collected voices — multiple authors, perspectives, and eras in one volume.</p>
+      <div class="tile-count-sm" id="role-count-anthologies"></div>
     </div>
-    <div class="role-cat-tile" onclick="showCatBooks(&quot;Memoirs: 'I Was There'&quot;, booksForCat(CATEGORIES.find(c=>c.name===&quot;Memoirs: 'I Was There'&quot;)))">
-      <h4>"I Was There"</h4>
+    <div class="role-cat-tile" onclick="showCatBooks('Award-Winning', booksForCat(CATEGORIES.find(c=>c.name==='Award-Winning')))">
+      <h4>Award-Winning</h4>
+      <p>Books recognized by the field for their reach, quality, or impact.</p>
+      <div class="tile-count-sm" id="role-count-award-winning"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Companion Animals', booksForCat(CATEGORIES.find(c=>c.name==='Companion Animals')))">
+      <h4>Companion Animals</h4>
+      <p>The bond between veterans and animals: service dogs, horses, and other healing companions.</p>
+      <div class="tile-count-sm" id="role-count-companion-animals"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Documentaries & Films', booksForCat(CATEGORIES.find(c=>c.name==='Documentaries & Films')))">
+      <h4>Documentaries &amp; Films</h4>
+      <p>Films that bear witness — for when you need to see it, not just read it.</p>
+      <div class="tile-count-sm" id="role-count-documentaries-and-films"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Good Sleep', booksForCat(CATEGORIES.find(c=>c.name==='Good Sleep')))">
+      <h4>Good Sleep</h4>
+      <p>Because sleep is where so much of the battle happens — and where healing begins.</p>
+      <div class="tile-count-sm" id="role-count-good-sleep"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Grief & Loss', booksForCat(CATEGORIES.find(c=>c.name==='Grief & Loss')))">
+      <h4>Grief &amp; Loss</h4>
+      <p>For the losses that don't always have names — and the ones that do.</p>
+      <div class="tile-count-sm" id="role-count-grief-and-loss"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Healing Multimedia', booksForCat(CATEGORIES.find(c=>c.name==='Healing Multimedia')))">
+      <h4>Healing Multimedia</h4>
+      <p>Audio, video, and mixed-media resources for healing beyond the printed page.</p>
+      <div class="tile-count-sm" id="role-count-healing-multimedia"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Highly Rated', booksForCat(CATEGORIES.find(c=>c.name==='Highly Rated')))">
+      <h4>Highly Rated</h4>
+      <p>Consistently well-regarded across readers — a useful starting point.</p>
+      <div class="tile-count-sm" id="role-count-highly-rated"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Memoirs: \'I Was There\'', booksForCat(CATEGORIES.find(c=>c.name==='Memoirs: \'I Was There\'')))">
+      <h4>Memoirs: 'I Was There'</h4>
       <p>First-person accounts by veterans — stories of war, return, and what comes after.</p>
-      <div class="tile-count-sm" id="role-count-iwasthere"></div>
+      <div class="tile-count-sm" id="role-count-memoirs-i-was-there"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Military Sexual Trauma', booksForCat(CATEGORIES.find(c=>c.name==='Military Sexual Trauma')))">
+      <h4>Military Sexual Trauma</h4>
+      <p>Resources addressing MST — an underserved population with distinct healing needs.</p>
+      <div class="tile-count-sm" id="role-count-military-sexual-trauma"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Mind-Body Skills', booksForCat(CATEGORIES.find(c=>c.name==='Mind-Body Skills')))">
+      <h4>Mind-Body Skills</h4>
+      <p>Somatic approaches, movement, and body-based practices for healing trauma from the inside out.</p>
+      <div class="tile-count-sm" id="role-count-mind-body-skills"></div>
     </div>
     <div class="role-cat-tile" onclick="showCatBooks('Moral Injury', booksForCat(CATEGORIES.find(c=>c.name==='Moral Injury')))">
       <h4>Moral Injury</h4>
       <p>For those carrying the weight of what was witnessed, done, or left undone.</p>
       <div class="tile-count-sm" id="role-count-moral-injury"></div>
     </div>
-    <div class="role-cat-tile" onclick="showCatBooks('Good Sleep', booksForCat(CATEGORIES.find(c=>c.name==='Good Sleep')))">
-      <h4>Good Sleep</h4>
-      <p>Because sleep is where so much of the battle happens — and where healing begins.</p>
-      <div class="tile-count-sm" id="role-count-sleep"></div>
+    <div class="role-cat-tile" onclick="showCatBooks('Oral Histories', booksForCat(CATEGORIES.find(c=>c.name==='Oral Histories')))">
+      <h4>Oral Histories</h4>
+      <p>Veterans in their own words — recorded, transcribed, and preserved.</p>
+      <div class="tile-count-sm" id="role-count-oral-histories"></div>
     </div>
-    <div class="role-cat-tile" onclick="showCatBooks('Documentaries &amp; Films', booksForCat(CATEGORIES.find(c=>c.name==='Documentaries & Films')))">
-      <h4>Documentaries &amp; Films</h4>
-      <p>Films that bear witness — for when you need to see it, not just read it.</p>
-      <div class="tile-count-sm" id="role-count-films-vet"></div>
+    <div class="role-cat-tile" onclick="showCatBooks('PTSD Classics', booksForCat(CATEGORIES.find(c=>c.name==='PTSD Classics')))">
+      <h4>PTSD Classics</h4>
+      <p>The foundational books that defined the field — essential reading for anyone navigating trauma.</p>
+      <div class="tile-count-sm" id="role-count-ptsd-classics"></div>
     </div>
     <div class="role-cat-tile" onclick="showCatBooks('PTSD Resources', booksForCat(CATEGORIES.find(c=>c.name==='PTSD Resources')))">
       <h4>PTSD Resources</h4>
-      <p>Practical guides, workbooks, and self-help resources focused on living with and recovering from PTSD.</p>
-      <div class="tile-count-sm" id="role-count-ptsd-resources-vet"></div>
+      <p>Practical guides and self-help resources focused on living with and recovering from PTSD.</p>
+      <div class="tile-count-sm" id="role-count-ptsd-resources"></div>
     </div>
-    <div class="role-cat-tile" onclick="showCatBooks('Mind-Body Skills', booksForCat(CATEGORIES.find(c=>c.name==='Mind-Body Skills')))">
-      <h4>Mind-Body Skills</h4>
-      <p>Somatic approaches, movement, and body-based practices for healing trauma from the inside out.</p>
-      <div class="tile-count-sm" id="role-count-mindbody-vet"></div>
+    <div class="role-cat-tile" onclick="showCatBooks('Public Policy & Advocacy', booksForCat(CATEGORIES.find(c=>c.name==='Public Policy & Advocacy')))">
+      <h4>Public Policy &amp; Advocacy</h4>
+      <p>The systemic context — policy, politics, and the fight for veteran care.</p>
+      <div class="tile-count-sm" id="role-count-public-policy-and-advocacy"></div>
     </div>
-    <div class="role-cat-tile" onclick="showCatBooks('Healing Multimedia', booksForCat(CATEGORIES.find(c=>c.name==='Healing Multimedia')))">
-      <h4>Healing Multimedia</h4>
-      <p>Audio, video, and mixed-media resources — healing that doesn't require sitting down with a book.</p>
-      <div class="tile-count-sm" id="role-count-multimedia-vet"></div>
+    <div class="role-cat-tile" onclick="showCatBooks('Self-Help', booksForCat(CATEGORIES.find(c=>c.name==='Self-Help')))">
+      <h4>Self-Help</h4>
+      <p>Structured, accessible tools for people doing their own work.</p>
+      <div class="tile-count-sm" id="role-count-self-help"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Spirituality', booksForCat(CATEGORIES.find(c=>c.name==='Spirituality')))">
+      <h4>Spirituality</h4>
+      <p>For those finding meaning, faith, or practice as part of their healing path.</p>
+      <div class="tile-count-sm" id="role-count-spirituality"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Suicide & Loss', booksForCat(CATEGORIES.find(c=>c.name==='Suicide & Loss')))">
+      <h4>Suicide &amp; Loss</h4>
+      <p>Resources for survivors of loss, and for those working with those at risk.</p>
+      <div class="tile-count-sm" id="role-count-suicide-and-loss"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('War Fiction', booksForCat(CATEGORIES.find(c=>c.name==='War Fiction')))">
+      <h4>War Fiction</h4>
+      <p>Novels and stories that capture what nonfiction sometimes cannot.</p>
+      <div class="tile-count-sm" id="role-count-war-fiction"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('War Photography', booksForCat(CATEGORIES.find(c=>c.name==='War Photography')))">
+      <h4>War Photography</h4>
+      <p>Images that bear witness — because some things must be seen.</p>
+      <div class="tile-count-sm" id="role-count-war-photography"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('War Poetry', booksForCat(CATEGORIES.find(c=>c.name==='War Poetry')))">
+      <h4>War Poetry</h4>
+      <p>The oldest form of witness literature — compressed, unforgettable.</p>
+      <div class="tile-count-sm" id="role-count-war-poetry"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Women Veterans', booksForCat(CATEGORIES.find(c=>c.name==='Women Veterans')))">
+      <h4>Women Veterans</h4>
+      <p>Resources centered on the distinct experiences of women who served.</p>
+      <div class="tile-count-sm" id="role-count-women-veterans"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Workbooks', booksForCat(CATEGORIES.find(c=>c.name==='Workbooks')))">
+      <h4>Workbooks</h4>
+      <p>Structured, skills-based workbooks for clinical and self-directed settings.</p>
+      <div class="tile-count-sm" id="role-count-workbooks"></div>
     </div>
   </div>
   <div class="role-escape-hatch">
@@ -842,30 +992,90 @@ footer {
     <p>For partners, spouses, families, and anyone who loves someone who served.</p>
   </div>
   <div class="role-cat-grid">
-    <div class="role-cat-tile" onclick="showCatBooks('Families, Spouses &amp; Caregivers', booksForCat(CATEGORIES.find(c=>c.name==='Families, Spouses & Caregivers')))">
+    <div class="role-cat-tile" onclick="showCatBooks('Children\'s Books', booksForCat(CATEGORIES.find(c=>c.name==='Children\'s Books')))">
+      <h4>Children's Books</h4>
+      <p>For the youngest members of military families — because children are affected too.</p>
+      <div class="tile-count-sm" id="role-count-childrens-books-fam"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Documentaries & Films', booksForCat(CATEGORIES.find(c=>c.name==='Documentaries & Films')))">
+      <h4>Documentaries &amp; Films</h4>
+      <p>Films that bear witness — for when you need to see it, not just read it.</p>
+      <div class="tile-count-sm" id="role-count-documentaries-and-films-fam"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Families, Spouses & Caregivers', booksForCat(CATEGORIES.find(c=>c.name==='Families, Spouses & Caregivers')))">
       <h4>Families, Spouses &amp; Caregivers</h4>
       <p>Guides and memoirs for those living alongside a veteran's invisible wounds.</p>
-      <div class="tile-count-sm" id="role-count-families"></div>
+      <div class="tile-count-sm" id="role-count-families-spouses-and-caregivers-fam"></div>
     </div>
-    <div class="role-cat-tile" onclick="showCatBooks('Documentaries &amp; Films', booksForCat(CATEGORIES.find(c=>c.name==='Documentaries & Films')))">
-      <h4>Documentaries &amp; Films</h4>
-      <p>Films that can say what words sometimes can't — a way in for families seeking to understand.</p>
-      <div class="tile-count-sm" id="role-count-films-fam"></div>
+    <div class="role-cat-tile" onclick="showCatBooks('Good Sleep', booksForCat(CATEGORIES.find(c=>c.name==='Good Sleep')))">
+      <h4>Good Sleep</h4>
+      <p>Because sleep is where so much of the battle happens — and where healing begins.</p>
+      <div class="tile-count-sm" id="role-count-good-sleep-fam"></div>
     </div>
-    <div class="role-cat-tile" onclick="showCatBooks('PTSD Resources', booksForCat(CATEGORIES.find(c=>c.name==='PTSD Resources')))">
-      <h4>PTSD Resources</h4>
-      <p>Accessible guides to understanding PTSD — what it is, how it works, and what helps.</p>
-      <div class="tile-count-sm" id="role-count-ptsd-resources-fam"></div>
-    </div>
-    <div class="role-cat-tile" onclick="showCatBooks('Mind-Body Skills', booksForCat(CATEGORIES.find(c=>c.name==='Mind-Body Skills')))">
-      <h4>Mind-Body Skills</h4>
-      <p>Body-based approaches to healing — useful for understanding what your veteran may be experiencing.</p>
-      <div class="tile-count-sm" id="role-count-mindbody-fam"></div>
+    <div class="role-cat-tile" onclick="showCatBooks('Grief & Loss', booksForCat(CATEGORIES.find(c=>c.name==='Grief & Loss')))">
+      <h4>Grief &amp; Loss</h4>
+      <p>For the losses that don't always have names — and the ones that do.</p>
+      <div class="tile-count-sm" id="role-count-grief-and-loss-fam"></div>
     </div>
     <div class="role-cat-tile" onclick="showCatBooks('Healing Multimedia', booksForCat(CATEGORIES.find(c=>c.name==='Healing Multimedia')))">
       <h4>Healing Multimedia</h4>
-      <p>Audio and video resources — easy entry points for when reading feels like too much.</p>
-      <div class="tile-count-sm" id="role-count-multimedia-fam"></div>
+      <p>Audio, video, and mixed-media resources for healing beyond the printed page.</p>
+      <div class="tile-count-sm" id="role-count-healing-multimedia-fam"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Highly Rated', booksForCat(CATEGORIES.find(c=>c.name==='Highly Rated')))">
+      <h4>Highly Rated</h4>
+      <p>Consistently well-regarded across readers — a useful starting point.</p>
+      <div class="tile-count-sm" id="role-count-highly-rated-fam"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Mind-Body Skills', booksForCat(CATEGORIES.find(c=>c.name==='Mind-Body Skills')))">
+      <h4>Mind-Body Skills</h4>
+      <p>Somatic approaches, movement, and body-based practices for healing trauma from the inside out.</p>
+      <div class="tile-count-sm" id="role-count-mind-body-skills-fam"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Moral Injury', booksForCat(CATEGORIES.find(c=>c.name==='Moral Injury')))">
+      <h4>Moral Injury</h4>
+      <p>For those carrying the weight of what was witnessed, done, or left undone.</p>
+      <div class="tile-count-sm" id="role-count-moral-injury-fam"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('PTSD Classics', booksForCat(CATEGORIES.find(c=>c.name==='PTSD Classics')))">
+      <h4>PTSD Classics</h4>
+      <p>The foundational books that defined the field — essential reading for anyone navigating trauma.</p>
+      <div class="tile-count-sm" id="role-count-ptsd-classics-fam"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('PTSD Resources', booksForCat(CATEGORIES.find(c=>c.name==='PTSD Resources')))">
+      <h4>PTSD Resources</h4>
+      <p>Practical guides and self-help resources focused on living with and recovering from PTSD.</p>
+      <div class="tile-count-sm" id="role-count-ptsd-resources-fam"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Public Policy & Advocacy', booksForCat(CATEGORIES.find(c=>c.name==='Public Policy & Advocacy')))">
+      <h4>Public Policy &amp; Advocacy</h4>
+      <p>The systemic context — policy, politics, and the fight for veteran care.</p>
+      <div class="tile-count-sm" id="role-count-public-policy-and-advocacy-fam"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Self-Help', booksForCat(CATEGORIES.find(c=>c.name==='Self-Help')))">
+      <h4>Self-Help</h4>
+      <p>Structured, accessible tools for people doing their own work.</p>
+      <div class="tile-count-sm" id="role-count-self-help-fam"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Spirituality', booksForCat(CATEGORIES.find(c=>c.name==='Spirituality')))">
+      <h4>Spirituality</h4>
+      <p>For those finding meaning, faith, or practice as part of their healing path.</p>
+      <div class="tile-count-sm" id="role-count-spirituality-fam"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Suicide & Loss', booksForCat(CATEGORIES.find(c=>c.name==='Suicide & Loss')))">
+      <h4>Suicide &amp; Loss</h4>
+      <p>Resources for survivors of loss, and for those working with those at risk.</p>
+      <div class="tile-count-sm" id="role-count-suicide-and-loss-fam"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Women Veterans', booksForCat(CATEGORIES.find(c=>c.name==='Women Veterans')))">
+      <h4>Women Veterans</h4>
+      <p>Resources centered on the distinct experiences of women who served.</p>
+      <div class="tile-count-sm" id="role-count-women-veterans-fam"></div>
+    </div>
+    <div class="role-cat-tile" onclick="showCatBooks('Workbooks', booksForCat(CATEGORIES.find(c=>c.name==='Workbooks')))">
+      <h4>Workbooks</h4>
+      <p>Structured, skills-based workbooks for clinical and self-directed settings.</p>
+      <div class="tile-count-sm" id="role-count-workbooks-fam"></div>
     </div>
   </div>
   <div class="role-escape-hatch">
@@ -874,7 +1084,6 @@ footer {
   </div>
 </div>
 
-<!-- FIELD SHAPERS SCREEN (placeholder — not linked from navigation) -->
 <div id="screen-fieldshapers" class="screen">
   <h1 class="page-title">Field Shapers</h1>
   <p class="page-sub">The people whose contributions to this field were relational, institutional, and clinical — not just bibliographic.</p>
@@ -1722,23 +1931,61 @@ function setRoleCount(id, catName) {
     el.textContent = n + ' resource' + (n !== 1 ? 's' : '');
   }
 }
-setRoleCount('role-count-clinicians', 'Clinicians Corner');
-setRoleCount('role-count-va', 'VA Recommended');
-setRoleCount('role-count-workbooks', 'Workbooks');
-setRoleCount('role-count-ptsd-classics', 'PTSD Classics');
-setRoleCount('role-count-iwasthere', "Memoirs: 'I Was There'");
-setRoleCount('role-count-moral-injury', 'Moral Injury');
-setRoleCount('role-count-sleep', 'Good Sleep');
-setRoleCount('role-count-films-vet', 'Documentaries & Films');
-setRoleCount('role-count-ptsd-resources-vet', 'PTSD Resources');
-setRoleCount('role-count-mindbody-vet', 'Mind-Body Skills');
-setRoleCount('role-count-multimedia-vet', 'Healing Multimedia');
-setRoleCount('role-count-families', 'Families, Spouses & Caregivers');
-setRoleCount('role-count-films-fam', 'Documentaries & Films');
-setRoleCount('role-count-ptsd-resources-fam', 'PTSD Resources');
-setRoleCount('role-count-mindbody-fam', 'Mind-Body Skills');
-setRoleCount('role-count-multimedia-fam', 'Healing Multimedia');
-
+  setRoleCount('role-count-anthologies', 'Anthologies');
+  setRoleCount('role-count-award-winning', 'Award-Winning');
+  setRoleCount('role-count-companion-animals', 'Companion Animals');
+  setRoleCount('role-count-documentaries-and-films', 'Documentaries & Films');
+  setRoleCount('role-count-good-sleep', 'Good Sleep');
+  setRoleCount('role-count-grief-and-loss', 'Grief & Loss');
+  setRoleCount('role-count-healing-multimedia', 'Healing Multimedia');
+  setRoleCount('role-count-highly-rated', 'Highly Rated');
+  setRoleCount('role-count-memoirs-i-was-there', "Memoirs: 'I Was There'");
+  setRoleCount('role-count-military-sexual-trauma', 'Military Sexual Trauma');
+  setRoleCount('role-count-mind-body-skills', 'Mind-Body Skills');
+  setRoleCount('role-count-moral-injury', 'Moral Injury');
+  setRoleCount('role-count-oral-histories', 'Oral Histories');
+  setRoleCount('role-count-ptsd-classics', 'PTSD Classics');
+  setRoleCount('role-count-ptsd-resources', 'PTSD Resources');
+  setRoleCount('role-count-public-policy-and-advocacy', 'Public Policy & Advocacy');
+  setRoleCount('role-count-self-help', 'Self-Help');
+  setRoleCount('role-count-spirituality', 'Spirituality');
+  setRoleCount('role-count-suicide-and-loss', 'Suicide & Loss');
+  setRoleCount('role-count-war-fiction', 'War Fiction');
+  setRoleCount('role-count-war-photography', 'War Photography');
+  setRoleCount('role-count-war-poetry', 'War Poetry');
+  setRoleCount('role-count-women-veterans', 'Women Veterans');
+  setRoleCount('role-count-workbooks', 'Workbooks');
+  setRoleCount('role-count-childrens-books-fam', "Children's Books");
+  setRoleCount('role-count-documentaries-and-films-fam', 'Documentaries & Films');
+  setRoleCount('role-count-families-spouses-and-caregivers-fam', 'Families, Spouses & Caregivers');
+  setRoleCount('role-count-good-sleep-fam', 'Good Sleep');
+  setRoleCount('role-count-grief-and-loss-fam', 'Grief & Loss');
+  setRoleCount('role-count-healing-multimedia-fam', 'Healing Multimedia');
+  setRoleCount('role-count-highly-rated-fam', 'Highly Rated');
+  setRoleCount('role-count-mind-body-skills-fam', 'Mind-Body Skills');
+  setRoleCount('role-count-moral-injury-fam', 'Moral Injury');
+  setRoleCount('role-count-ptsd-classics-fam', 'PTSD Classics');
+  setRoleCount('role-count-ptsd-resources-fam', 'PTSD Resources');
+  setRoleCount('role-count-public-policy-and-advocacy-fam', 'Public Policy & Advocacy');
+  setRoleCount('role-count-self-help-fam', 'Self-Help');
+  setRoleCount('role-count-spirituality-fam', 'Spirituality');
+  setRoleCount('role-count-suicide-and-loss-fam', 'Suicide & Loss');
+  setRoleCount('role-count-women-veterans-fam', 'Women Veterans');
+  setRoleCount('role-count-workbooks-fam', 'Workbooks');
+  setRoleCount('role-count-clinicians-corner-clin', 'Clinicians Corner');
+  setRoleCount('role-count-va-recommended-clin', 'VA Recommended');
+  setRoleCount('role-count-workbooks-clin', 'Workbooks');
+  setRoleCount('role-count-award-winning-clin', 'Award-Winning');
+  setRoleCount('role-count-childrens-books-clin', "Children's Books");
+  setRoleCount('role-count-documentaries-and-films-clin', 'Documentaries & Films');
+  setRoleCount('role-count-grief-and-loss-clin', 'Grief & Loss');
+  setRoleCount('role-count-military-sexual-trauma-clin', 'Military Sexual Trauma');
+  setRoleCount('role-count-mind-body-skills-clin', 'Mind-Body Skills');
+  setRoleCount('role-count-moral-injury-clin', 'Moral Injury');
+  setRoleCount('role-count-ptsd-classics-clin', 'PTSD Classics');
+  setRoleCount('role-count-spirituality-clin', 'Spirituality');
+  setRoleCount('role-count-suicide-and-loss-clin', 'Suicide & Loss');
+  setRoleCount('role-count-women-veterans-clin', 'Women Veterans');
 </script>
 </body>
 </html>
