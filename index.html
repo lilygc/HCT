@@ -49,7 +49,7 @@ body {
   z-index: 100;
   box-shadow: 0 2px 12px rgba(0,0,0,.25);
 }
-.logo-svg { flex-shrink: 0; width: 44px; height: 44px; cursor: pointer; }
+.logo-svg { flex-shrink: 0; width: 58px; height: 58px; cursor: pointer; border-radius: 8px; -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 55%, transparent 100%); mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 55%, transparent 100%); }
 .header-title { cursor: pointer; line-height: 1.15; }
 .header-title .h1 {
   font-family: 'Playfair Display', serif;
@@ -151,7 +151,7 @@ body {
 /* ── ROLE CARDS ── */
 .welcome-body {
   flex: 1;
-  padding: 40px 20px 60px;
+  padding: 40px 48px 60px 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -177,7 +177,7 @@ body {
   background: var(--card-bg);
   border: 2px solid var(--border);
   border-radius: 14px;
-  padding: 28px 24px;
+  padding: 28px 48px 28px 48px;
   flex: 1;
   min-width: 200px;
   max-width: 260px;
@@ -215,7 +215,7 @@ body {
 
 /* ── CATEGORY PAGE ── */
 #screen-categories {
-  padding: 36px 24px 60px;
+  padding: 36px 48px 60px 48px;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -317,7 +317,7 @@ body {
 
 /* ── ALL BOOKS SORT PAGE ── */
 #screen-allbooks {
-  padding: 36px 24px 60px;
+  padding: 36px 48px 60px 48px;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -413,7 +413,7 @@ body {
 
 /* ── BOOK GRID ── */
 #screen-books {
-  padding: 36px 24px 60px;
+  padding: 36px 48px 60px 48px;
   max-width: 1100px;
   margin: 0 auto;
 }
@@ -563,7 +563,7 @@ footer {
 }
 
 /* ── ERA SUB-NAVIGATION ── */
-#screen-subcats { padding: 20px; }
+#screen-subcats { padding: 20px 48px 20px 48px; }
 .subcat-grid {
   display: flex;
   flex-wrap: wrap;
@@ -710,6 +710,7 @@ footer {
   <nav class="header-nav">
     <button class="nav-btn" onclick="showAllBooks('title')">All Books &amp; Multimedia</button>
     <button class="nav-btn featured-btn" onclick="showFeatured()">Featured</button>
+    <button class="nav-btn" onclick="showScreen('about')">About</button>
     <button class="nav-btn" onclick="showScreen('categories')">Browse Categories</button>
   </nav>
 </header>
@@ -770,7 +771,7 @@ footer {
     <h2>For Clinicians &amp; Therapists</h2>
     <p>Clinical resources, evidence-based tools, and VA-recognized reading — curated for practitioners.</p>
   </div>
-  <div class="role-cat-grid">
+  <div class="role-cat-grid" style="justify-content:center;">
     <div class="role-cat-tile pinned" onclick="showCatBooks('Clinicians Corner', booksForCat(CATEGORIES.find(c=>c.name==='Clinicians Corner')))">
       <h4>Clinicians Corner</h4>
       <p>Evidence-based clinical texts, treatment guides, and professional resources.</p>
@@ -1081,6 +1082,95 @@ footer {
   <div class="role-escape-hatch">
     <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
     <button class="escape-btn" onclick="showScreen('allbooks')">All Books &amp; Multimedia</button>
+  </div>
+</div>
+
+<!-- ABOUT THE SITE SCREEN -->
+<div id="screen-about" class="screen" style="padding-left:48px;padding-right:48px;">
+  <div style="max-width:720px;">
+    <h1 class="page-title">About the Site</h1>
+
+    <p style="font-family:'Source Serif 4',serif;font-size:.95rem;line-height:1.5;color:var(--text);margin-bottom:.7rem;">
+      Healing Combat Trauma has been a resource in the veterans&#8217; trauma field since the early 2000s.
+      The original site was the first of its kind &#8212; there was nothing else like it when it launched.
+      It grew to include nearly a thousand articles, interviews, and curated resources before its hosting
+      platform shut down without warning, taking the archive with it.
+    </p>
+
+    <p style="font-family:'Source Serif 4',serif;font-size:.95rem;line-height:1.5;color:var(--text);margin-bottom:.7rem;">
+      This is its rebuilt form. The collection is larger and more carefully organized than what came before,
+      and the navigation has been designed with three different visitors in mind: veterans doing their own
+      healing work, the people who love and support them, and the clinicians and therapists who work with
+      them professionally.
+    </p>
+
+    <p style="font-family:'Source Serif 4',serif;font-size:.95rem;line-height:1.5;color:var(--text);margin-bottom:1.5rem;">
+      The site is curated &#8212; not comprehensive. The goal isn&#8217;t to list every book ever written about war
+      and trauma, but to surface the ones most likely to matter to a particular reader at a particular
+      moment. Think of it less as a library catalog and more as curated recommendations that offer
+      something <strong>especially</strong> worth knowing about.
+    </p>
+
+    <hr style="border:none;border-top:3px solid var(--sage);opacity:.6;margin:1.5rem 0;">
+    <div style="text-align:center;margin:1.5rem 0;">
+      <p style="font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;color:var(--sage-dk);line-height:1.7;margin-bottom:.5rem;">
+        &#8220;Healing is a matter of time, but it is sometimes also a matter of opportunity.&#8221;
+      </p>
+      <p style="font-size:.85rem;color:var(--text-lt);">&#8212; Hippocrates (c. 460&#8211;370 BCE)</p>
+    </div>
+    <hr style="border:none;border-top:3px solid var(--sage);opacity:.6;margin:1.5rem 0;">
+
+    <p style="font-family:'Source Serif 4',serif;font-size:.95rem;font-style:italic;line-height:1.5;color:#666;margin-bottom:1.5rem;">
+      Nothing on this site is intended to be medical advice. The use of the word <em>healing</em> is chosen
+      intentionally &#8212; because healing is something we can all take part in, without guaranteeing a certain
+      outcome. For medical and psychological concerns, please see a qualified practitioner.
+    </p>
+    <hr style="border:none;border-top:3px solid var(--sage);opacity:.6;margin:1.5rem 0;">
+
+    <div style="text-align:center;margin:1.8rem 0 .8rem;">
+  <svg width="52" height="36" viewBox="0 0 52 36" xmlns="http://www.w3.org/2000/svg">
+    <!-- left page -->
+    <path d="M26 6 C20 4 10 4 3 6 L3 30 C10 28 20 28 26 30 Z" fill="#e8ede9" stroke="#4F6352" stroke-width="1.8" stroke-linejoin="round"/>
+    <!-- right page -->
+    <path d="M26 6 C32 4 42 4 49 6 L49 30 C42 28 32 28 26 30 Z" fill="#e8ede9" stroke="#4F6352" stroke-width="1.8" stroke-linejoin="round"/>
+    <!-- spine -->
+    <line x1="26" y1="6" x2="26" y2="30" stroke="#4F6352" stroke-width="2"/>
+    <!-- left text lines -->
+    <line x1="8"  y1="13" x2="22" y2="12" stroke="#7C9080" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="8"  y1="17" x2="22" y2="16" stroke="#7C9080" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="8"  y1="21" x2="22" y2="20" stroke="#7C9080" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- right text lines -->
+    <line x1="30" y1="12" x2="44" y2="13" stroke="#7C9080" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="30" y1="16" x2="44" y2="17" stroke="#7C9080" stroke-width="1.2" stroke-linecap="round"/>
+    <line x1="30" y1="20" x2="44" y2="21" stroke="#7C9080" stroke-width="1.2" stroke-linecap="round"/>
+  </svg>
+</div>
+
+    <h2 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--sage-dk);margin-bottom:.9rem;text-align:center;">A Note About Book Prices</h2>
+
+    <p style="font-family:'Source Serif 4',serif;font-size:.95rem;line-height:1.5;color:var(--text);margin-bottom:.7rem;">
+      In almost all cases, the links on this site go to the paperback edition. That&#8217;s generally the most
+      affordable way to buy a book, and it&#8217;s the default here.
+    </p>
+
+    <p style="font-family:'Source Serif 4',serif;font-size:.95rem;line-height:1.5;color:var(--text);margin-bottom:.7rem;">
+      Kindle and audiobook editions are usually available on the same Amazon page &#8212; just look for the
+      format tabs above the price. For some titles, especially if you want to start reading immediately
+      or are managing a stack of books in treatment, those formats may suit you better.
+    </p>
+
+    <p style="font-family:'Source Serif 4',serif;font-size:.95rem;line-height:1.5;color:var(--text);margin-bottom:2rem;">
+      Here&#8217;s the one that surprises people: on photography and art books, the hardcover is sometimes
+      cheaper than the paperback. This sounds backwards, but it happens &#8212; publishers print large hardcover
+      runs for photography titles and the paperback becomes the rarer format. If a book is showing a price
+      of $100 or more, even in used condition, it&#8217;s worth clicking over to check the hardcover price.
+      You may find it costs a fraction of what the paperback does.
+    </p>
+
+    <div class="role-escape-hatch">
+      <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
+      <button class="escape-btn" onclick="showAllBooks('title')">All Books &amp; Multimedia</button>
+    </div>
   </div>
 </div>
 
