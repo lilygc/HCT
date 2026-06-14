@@ -666,11 +666,12 @@ footer {
 }
 .role-escape-hatch {
   display: flex;
+  justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
-  padding-top: 8px;
+  padding-top: 24px;
   border-top: 1px solid var(--border);
-  margin-top: 8px;
+  margin-top: 32px;
 }
 .escape-btn {
   background: transparent;
@@ -767,7 +768,7 @@ footer {
 
 
 <!-- ROLE VIEW: CLINICIAN -->
-<div id="screen-role-clinician" class="screen">
+<div id="screen-role-clinician" class="screen" style="padding: 36px 48px 60px 48px;">
   <div class="role-view-header">
     <h2>For Clinicians &amp; Therapists</h2>
     <p>Clinical resources, evidence-based tools, and VA-recognized reading — curated for practitioners.</p>
@@ -847,15 +848,15 @@ footer {
       <div class="tile-count-sm" id="role-count-women-veterans-clin"></div>
     </div>
   </div>
-  <div class="role-escape-hatch">
+  <div class="role-escape-hatch" style="justify-content:center;">
     <button class="escape-btn" onclick="showScreen('welcome')">← Back to Main</button>
     <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
-    <button class="escape-btn" onclick="showScreen('allbooks')">All Books &amp; Multimedia</button>
+    <button class="escape-btn" onclick="showAllBooks('title')">All Books &amp; Multimedia</button>
   </div>
 </div>
 
 <!-- ROLE VIEW: MY OWN HEALING -->
-<div id="screen-role-veteran" class="screen">
+<div id="screen-role-veteran" class="screen" style="padding: 36px 48px 60px 48px;">
   <div class="role-view-header">
     <h2>My Own Healing</h2>
     <p>Resources selected for veterans seeking to understand, process, and move forward.</p>
@@ -982,15 +983,15 @@ footer {
       <div class="tile-count-sm" id="role-count-workbooks"></div>
     </div>
   </div>
-  <div class="role-escape-hatch">
+  <div class="role-escape-hatch" style="justify-content:center;">
     <button class="escape-btn" onclick="showScreen('welcome')">← Back to Main</button>
     <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
-    <button class="escape-btn" onclick="showScreen('allbooks')">All Books &amp; Multimedia</button>
+    <button class="escape-btn" onclick="showAllBooks('title')">All Books &amp; Multimedia</button>
   </div>
 </div>
 
 <!-- ROLE VIEW: A VETERAN IN MY LIFE -->
-<div id="screen-role-family" class="screen">
+<div id="screen-role-family" class="screen" style="padding: 36px 48px 60px 48px;">
   <div class="role-view-header">
     <h2>A Veteran in My Life</h2>
     <p>For partners, spouses, families, and anyone who loves someone who served.</p>
@@ -1082,15 +1083,15 @@ footer {
       <div class="tile-count-sm" id="role-count-workbooks-fam"></div>
     </div>
   </div>
-  <div class="role-escape-hatch">
+  <div class="role-escape-hatch" style="justify-content:center;">
     <button class="escape-btn" onclick="showScreen('welcome')">← Back to Main</button>
     <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
-    <button class="escape-btn" onclick="showScreen('allbooks')">All Books &amp; Multimedia</button>
+    <button class="escape-btn" onclick="showAllBooks('title')">All Books &amp; Multimedia</button>
   </div>
 </div>
 
 <!-- ABOUT THE SITE SCREEN -->
-<div id="screen-about" class="screen" style="padding-left:48px;padding-right:48px;">
+<div id="screen-about" class="screen" style="padding: 36px 48px 60px 48px;">
   <div style="max-width:720px;">
     <h1 class="page-title">About the Site</h1>
 
@@ -1171,10 +1172,11 @@ footer {
       You may find it costs a fraction of what the paperback does.
     </p>
 
-    <div class="role-escape-hatch">
-      <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
-      <button class="escape-btn" onclick="showAllBooks('title')">All Books &amp; Multimedia</button>
-    </div>
+  <div class="role-escape-hatch" style="justify-content:center;">
+    <button class="escape-btn" onclick="showScreen('welcome')">← Back to Main</button>
+    <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
+    <button class="escape-btn" onclick="showAllBooks('title')">All Books &amp; Multimedia</button>
+  </div>
   </div>
 </div>
 
@@ -1207,11 +1209,11 @@ footer {
       <p style="font-size:.95rem;line-height:1.7;">This section will grow to include other clinicians, researchers, and advocates whose contributions to understanding and treating combat trauma shaped the field &#x2014; people whose most important work was done in rooms, not on pages.</p>
     </div>
 
-    <div class="role-escape-hatch" style="justify-content:center;margin-top:2rem;">
-      <button class="escape-btn" onclick="showScreen('welcome')">← Back to Main</button>
-      <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
-      <button class="escape-btn" onclick="showAllBooks('title')">All Books &amp; Multimedia</button>
-    </div>
+  <div class="role-escape-hatch" style="justify-content:center;">
+    <button class="escape-btn" onclick="showScreen('welcome')">← Back to Main</button>
+    <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
+    <button class="escape-btn" onclick="showAllBooks('title')">All Books &amp; Multimedia</button>
+  </div>
 
   </div>
 </div>
@@ -1245,10 +1247,10 @@ footer {
 </div>
 
 <!-- FEATURED SCREEN -->
-<div id="screen-featured" class="screen">
+<div id="screen-featured" class="screen" style="padding: 36px 48px 60px 48px;">
   <h1 class="page-title">Featured</h1>
   <div id="featured-content" style="max-width:700px;margin:2rem auto;padding:0 1rem;"></div>
-  <div class="role-escape-hatch">
+  <div class="role-escape-hatch" style="justify-content:center;">
     <button class="escape-btn" onclick="showScreen('welcome')">← Back to Main</button>
     <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
     <button class="escape-btn" onclick="showAllBooks('title')">All Books &amp; Multimedia</button>
