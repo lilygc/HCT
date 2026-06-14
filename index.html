@@ -710,9 +710,9 @@ footer {
   <nav class="header-nav">
     <button class="nav-btn" onclick="showAllBooks('title')">All Books &amp; Multimedia</button>
     <button class="nav-btn featured-btn" onclick="showFeatured()">Featured</button>
-    <button class="nav-btn" onclick="showScreen('fieldshapers')">Field Shapers &amp; Pioneers</button>
     <button class="nav-btn" onclick="showScreen('about')">About</button>
     <button class="nav-btn" onclick="showScreen('categories')">Browse Categories</button>
+    <button class="nav-btn" onclick="showScreen('fieldshapers')">Field Shapers &amp; Pioneers</button>
   </nav>
 </header>
 
@@ -848,6 +848,7 @@ footer {
     </div>
   </div>
   <div class="role-escape-hatch">
+    <button class="escape-btn" onclick="showScreen('welcome')">← Back to Main</button>
     <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
     <button class="escape-btn" onclick="showScreen('allbooks')">All Books &amp; Multimedia</button>
   </div>
@@ -982,6 +983,7 @@ footer {
     </div>
   </div>
   <div class="role-escape-hatch">
+    <button class="escape-btn" onclick="showScreen('welcome')">← Back to Main</button>
     <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
     <button class="escape-btn" onclick="showScreen('allbooks')">All Books &amp; Multimedia</button>
   </div>
@@ -1081,6 +1083,7 @@ footer {
     </div>
   </div>
   <div class="role-escape-hatch">
+    <button class="escape-btn" onclick="showScreen('welcome')">← Back to Main</button>
     <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
     <button class="escape-btn" onclick="showScreen('allbooks')">All Books &amp; Multimedia</button>
   </div>
@@ -1175,7 +1178,7 @@ footer {
   </div>
 </div>
 
-<div id="screen-fieldshapers" class="screen">
+<div id="screen-fieldshapers" class="screen" style="padding: 36px 48px 60px 48px;">
   <h1 class="page-title">Field Shapers &amp; Pioneers</h1>
   <p class="page-sub">The people whose contributions to this field were relational, institutional, and clinical — not just bibliographic.</p>
 
@@ -1202,6 +1205,12 @@ footer {
     <div style="text-align:center;padding:2rem 1rem 1rem;color:var(--text-lt);">
       <p style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--sage-dk);margin-bottom:.6rem;">More portraits to come.</p>
       <p style="font-size:.95rem;line-height:1.7;">This section will grow to include other clinicians, researchers, and advocates whose contributions to understanding and treating combat trauma shaped the field &#x2014; people whose most important work was done in rooms, not on pages.</p>
+    </div>
+
+    <div class="role-escape-hatch" style="justify-content:center;margin-top:2rem;">
+      <button class="escape-btn" onclick="showScreen('welcome')">← Back to Main</button>
+      <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
+      <button class="escape-btn" onclick="showAllBooks('title')">All Books &amp; Multimedia</button>
     </div>
 
   </div>
@@ -1237,9 +1246,13 @@ footer {
 
 <!-- FEATURED SCREEN -->
 <div id="screen-featured" class="screen">
-  <button class="back-btn" onclick="showScreen('welcome')">← Back</button>
   <h1 class="page-title">Featured</h1>
   <div id="featured-content" style="max-width:700px;margin:2rem auto;padding:0 1rem;"></div>
+  <div class="role-escape-hatch">
+    <button class="escape-btn" onclick="showScreen('welcome')">← Back to Main</button>
+    <button class="escape-btn" onclick="showScreen('categories')">Browse All Categories</button>
+    <button class="escape-btn" onclick="showAllBooks('title')">All Books &amp; Multimedia</button>
+  </div>
 </div>
 
 <div id="screen-allbooks" class="screen">
